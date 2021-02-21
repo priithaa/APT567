@@ -17,7 +17,7 @@
 
             <div class="col-6">
                 <div class="green">
-                    <h1><a href="login.html">APT567
+                    <h1><a href="login.php">APT567
                         </a>
                     </h1>
                 </div>

@@ -23,7 +23,7 @@
 		</div>
 
         <div class="col-6">
-			<a href="create_account.html">
+			<a href="create_account.php">
 				<button type="button" class="btn btn-light" > Create Account
 				</button>
 			</a>
