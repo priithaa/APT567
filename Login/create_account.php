@@ -39,7 +39,7 @@
         <div class="CreateAccountForm">
 
             <h3>Create Your Account</h3>
-            <form action="" method="POST">
+            <form action="includes/create_account.inc.php" method="POST">
                 <h6>Enter your Name</h6>
                 <input type="text" name="fullName">
                 <br>
@@ -47,7 +47,7 @@
                 <input type="text" name="studentId">
                 <br>
                 <h6>Enter your Email Id</h6>
-                <input type="email" name="Username">
+                <input type="email" name="email">
                 <br>
                 <h6>Enter your Degree</h6>
                 <input type="text" name="degree">
@@ -71,7 +71,7 @@
                 <br>
                 <h6>Enter your Section</h6>
                 <!-- <input type="text" name="semester"> -->
-                <select id="" name="semester">
+                <select id="" name="section">
                     <option value="A">A</option>
                     <option value="B">B</option>
                 </select>
@@ -87,7 +87,30 @@
                 <button type="submit" name="submit">
                     REGISTER
                 </button>
+
             </form>
+            <?php
+
+            if (isset($_GET["error"])) {
+                if ($_GET["error"] == "emptyInputSignup")
+                    echo "<p>Please fill all the fields</p>";
+                if ($_GET["error"] == "invalidName")
+                    echo "<p>Name is invalid</p>";
+                if ($_GET["error"] == "invalidEmail")
+                    echo "<p>Email is invalid</p>";
+                if ($_GET["error"] == "checkBanasthaliEmail")
+                    echo "<p>Please provide Banasthali id</p>";
+                if ($_GET["error"] == "pwdMatch")
+                    echo "<p>Passwords dont match</p>";
+                if ($_GET["error"] == "uidExists")
+                    echo "<p>Student ID/Email is taken</p>";
+                if ($_GET["error"] == "stmtfailed")
+                    echo "<p>Something went wrong</p>";
+                if ($_GET["error"] == "stmtfaileduid")
+                    echo "<p>Something went wrong</p>";
+            }
+
+            ?>
             <br>
             <br>
             <!--   <p>
