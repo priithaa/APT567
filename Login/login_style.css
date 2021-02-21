@@ -118,6 +118,19 @@ background: #05386B;
     margin-bottom: 50px;;
 }
 
+.LoginForm select
+{
+    size: 500px;
+}
+.LoginForm option
+{
+     border: none;
+     border-bottom: 1px solid #000000;
+     /* width: 10000px; */
+    /* padding-left: 60px; */
+    /* margin-bottom: 50px; */
+}
+
 .LoginForm button{
     width: 200px;
     height: 60px;
@@ -182,10 +195,11 @@ background: #05386B;
 
 .createblue{
     position: absolute;
-    width: 1263px;
-    height: 1000px;
+    width: 100%;
+	/* max-width: 800px; */
+    /* height: 1000px;
     left: 0px;
-    top: 157px;
+    top: 157px; */
     background: #05386B;
     }
 
