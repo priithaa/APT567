@@ -19,7 +19,7 @@ session_start();
 
 <body>
 
-    <div class="container-fluid row">
+    <div class="container-fluid row logo">
 
         <div class="col-6">
             <div class="green">
@@ -37,19 +37,20 @@ session_start();
             </div> -->
     </div>
 
-    <div class="createblue">
+    <div class="container-fluid createblue">
 
         <div class="CreateAccountForm">
 
             <h3>Create Your Account</h3>
             <form action="includes/create_account.inc.php" method="POST">
-                <?php if (isset($_GET["error"])) {
-                    if ($_GET["error"] == "emptyInputSignup")
-                        echo "<p>Please fill all the fields</p>";
-                }
-                ?>
+                <div class="error"><?php if (isset($_GET["error"])) {
+                                        if ($_GET["error"] == "emptyInputSignup")
+                                            echo "<p>Please fill all the fields</p>";
+                                    }
+                                    ?>
+                </div>
                 <h6>Enter your Name</h6>
-                <input type="text" name="fullName" value="<?php if(isset($_SESSION["fullName"]))echo htmlspecialchars($_SESSION["fullName"]); ?>">
+                <input type="text" name="fullName" value="<?php if (isset($_SESSION["fullName"])) echo htmlspecialchars($_SESSION["fullName"]); ?>">
                 <?php if (isset($_GET["error"])) {
                     if ($_GET["error"] == "invalidName")
                         echo "<p>Name is invalid</p>";
@@ -58,23 +59,26 @@ session_start();
                 <br>
                 <h6>Enter your Student ID</h6>
                 <input type="text" name="studentId" value="<?php if (isset($_SESSION["studentId"])) echo htmlspecialchars($_SESSION["studentId"]); ?>">
-                <?php if (isset($_GET["error"])) {
-                    if ($_GET["error"] == "invalidStudentID")
-                        echo "<p>Enter Valid Student Id</p>";
-                    if ($_GET["error"] == "uidExists")
-                        echo "<p>Student ID/Email is taken</p>";
-                }
-                ?>
+                <div class="error"><?php if (isset($_GET["error"])) {
+                                        if ($_GET["error"] == "invalidStudentID")
+                                            echo "<p>Enter Valid Student Id</p>";
+                                        if ($_GET["error"] == "uidExists")
+                                            echo "<p>Student ID/Email is taken</p>";
+                                    }
+                                    ?>
+                </div>
                 <br>
                 <h6>Enter your Email Id</h6>
                 <input type="text" name="email" value="<?php if (isset($_SESSION["email"])) echo htmlspecialchars($_SESSION["email"]); ?>">
-                <?php if (isset($_GET["error"])) {
-                    if ($_GET["error"] == "invalidEmail")
-                        echo "<p>Email is invalid</p>";
-                    else if ($_GET["error"] == "checkBanasthaliEmail")
-                        echo "<p>Please provide Banasthali id</p>";
-                }
-                ?>
+                <div class="error"><?php if (isset($_GET["error"])) 
+                                    {
+                                        if ($_GET["error"] == "invalidEmail")
+                                            echo "<p>Email is invalid</p>";
+                                        else if ($_GET["error"] == "checkBanasthaliEmail")
+                                            echo "<p>Please provide Banasthali id</p>";
+                                    }
+                                    ?>
+                </div>
                 <br>
                 <h6>Enter your Branch</h6>
                 <select id="" name="branch">
@@ -105,14 +109,15 @@ session_start();
                 <br>
                 <h6>Confirm Password</h6>
                 <input type="password" name="ConfirmPassword">
-                <?php if (isset($_GET["error"])) {
-                    if ($_GET["error"] == "pwdMatch")
-                        echo "<p>Passwords dont match</p>";
-                }
-                ?>
+                <div class="error"> <?php if (isset($_GET["error"])) {
+                                        if ($_GET["error"] == "pwdMatch")
+                                            echo "<p>Passwords dont match</p>";
+                                    }
+                                    ?>
+                </div>
                 <br>
                 <button type="submit" name="submit">
-                    REGISTER
+                        REGISTER
                 </button>
 
             </form>
@@ -164,11 +169,11 @@ session_start();
 
 <?php
 
-if(isset($_SESSION["fullName"]))  
+if (isset($_SESSION["fullName"]))
     unset($_SESSION["fullName"]);
-if (isset($_SESSION["email"]))  
+if (isset($_SESSION["email"]))
     unset($_SESSION["email"]);
-if (isset($_SESSION["studentId"]))  
+if (isset($_SESSION["studentId"]))
     unset($_SESSION["studentId"]);
 
 
