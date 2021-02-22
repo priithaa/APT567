@@ -98,7 +98,7 @@ function createUser($conn, $name,$sid,$email,$branch,$semester,$section,$pwd)
     $class_id = $row["Class_ID"];
     mysqli_stmt_close($stmt);
     // Fetched the corresponding class id using prepared sql statements.
-    
+
     $type = "S";
     // Detremining which user the login table has.
     $sql = "INSERT INTO student_info VALUES (?,?,?,?);";
@@ -118,7 +118,7 @@ function createUser($conn, $name,$sid,$email,$branch,$semester,$section,$pwd)
         exit();
     }
 
-    $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
+    $hashedPwd = $pwd;//password_hash($pwd, PASSWORD_DEFAULT);
     // protects the password
 
     mysqli_stmt_bind_param($stmt1, "ssss", $sid, $name, $email, $class_id);
@@ -135,37 +135,63 @@ function createUser($conn, $name,$sid,$email,$branch,$semester,$section,$pwd)
 }
 
 
-function emptyInputLogin($username, $pwd)
+function emptyInputLogin($id, $pwd)
 {
 
-    if (empty($username) || empty($pwd))
+    if (empty($id) || empty($pwd))
         return true;
     return false;
 }
 
-function loginUser($conn, $username, $pwd)
+function login_uidExists($conn, $id, $email, $type)
 {
-    $uidExists = uidExists($conn, $username, $username);
+    $sql = "SELECT * FROM login_info  WHERE (Login_ID = ? OR Login_email = ? ) AND (Login_type = ?);";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../signup.php?error=stmtfaileduid");
+        exit();
+    }
+
+
+    mysqli_stmt_bind_param($stmt, "sss", $id, $email ,$type);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    }
+
+    mysqli_stmt_close($stmt);
+    return false;
+}
+
+function loginUser($conn, $id, $pwd , $type)
+{
+    $LoginuidExists = login_uidExists($conn, $id, $id , $type);
 
     // two parameter of the same type coz we always check with either username and email also the script has an OR.
-    if ($uidExists === false) {
+    if ($LoginuidExists === false) {
         header("location:../login.php?error=usernotfound");
         exit();
     }
 
-    $pwdHashed = $uidExists["usersPwd"];
+    $pwdHashed = $LoginuidExists["Login_password"];
+    //echo $pwdHashed;
+  //  $checkPwd = password_verify($pwd, $pwdHashed);
+  //  echo $pwd;
 
-    $checkPwd = password_verify($pwd, $pwdHashed);
-
-    if ($checkPwd === false) {
-        header("location:../login.php?error=usernotfound");
+    if ($pwd !== $pwdHashed) {
+        header("location:../login.php?error=wrongPassword");
         exit();
-    } elseif ($checkPwd === true) {
+    } else if ($pwd === $pwdHashed) {
         session_start();
-        $_SESSION["usersid"] = $uidExists["usersID"];
-        $_SESSION["usersuid"] = $uidExists["usersUid"];
+        $_SESSION["id"] = $LoginuidExists["Login_id"];
+        //$_SESSION["usersuid"] = $uidExists["usersUid"];
 
-        header("location: ../index.php");
+        header("location: ../../Dashboard/dashboard.php");
 
         exit();
     }
