@@ -12,7 +12,7 @@ function emptyInputSignup($name,$sid,$email,$pwd,$rpwd)
 
 function invalidName($name)
 {
-    if (!preg_match("/^[a-zA-Z]*$/", $name))
+    if (!preg_match("/^[a-zA-Z]+(\s[a-zA-Z]+)?$/", $name))
         return true;
     return false;
 }
@@ -24,9 +24,16 @@ function invalidEmail($email)
     return false;
 }
 
+function invalidStudentID($sid)
+{
+    if(strlen($sid)!=10)
+        return true;
+    return false;
+}
+
 function checkBanasthaliEmail($email)
 {
-    $word = "banasthali";
+    $word = "@banasthali.in";
     if(strpos($email,$word)==false)
         return true;
     return false;
@@ -67,13 +74,46 @@ function uidExists($conn, $sid, $email)
 
 
 
-function createUser($conn, $name, $email, $username, $pwd)
+function createUser($conn, $name,$sid,$email,$branch,$semester,$section,$pwd)
 {
-    $sql = "INSERT INTO users (usersName,usersEmail,usersUid,usersPwd) VALUES (?,?,?,?);";
+    // Code snippets for class id fetching.
+    $sql = "SELECT Class_ID FROM class_info  WHERE Semester = ? AND Branch = ? AND Section = ?;";
 
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../signup.php?error=stmtfaileduid");
+        exit();
+    }
+
+
+    mysqli_stmt_bind_param($stmt, "sss", $semester, $branch,$section);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+
+    $row = mysqli_fetch_assoc($resultData);
+
+    $class_id = $row["Class_ID"];
+    mysqli_stmt_close($stmt);
+    // Fetched the corresponding class id using prepared sql statements.
+    
+    $type = "S";
+    // Detremining which user the login table has.
+    $sql = "INSERT INTO student_info VALUES (?,?,?,?);";
+    $sql_login = "INSERT INTO login_info values(?,?,?,?);";
+
+    // for filling info in login table.
+    $stmt1 = mysqli_stmt_init($conn);
+    $stmt_login = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt1, $sql)) {
+        header("location: ../signup.php?error=stmtfailedfinal");
+        exit();
+    }
+
+    if (!mysqli_stmt_prepare($stmt_login, $sql_login)) {
         header("location: ../signup.php?error=stmtfailedfinal");
         exit();
     }
@@ -81,10 +121,16 @@ function createUser($conn, $name, $email, $username, $pwd)
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
     // protects the password
 
-    mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    header("location: ../signup.php?error=none");
+    mysqli_stmt_bind_param($stmt1, "ssss", $sid, $name, $email, $class_id);
+    mysqli_stmt_execute($stmt1);
+    mysqli_stmt_close($stmt1);
+
+    mysqli_stmt_bind_param($stmt_login, "ssss",$sid,$email,$hashedPwd,$type);
+    mysqli_stmt_execute($stmt_login);
+    mysqli_stmt_close($stmt_login);
+
+
+    header("location: ../create_account.php?error=none");
     exit();
 }
 
