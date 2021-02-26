@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start(); 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +17,11 @@
 			<div class="col-3"><img src="ProfilePicture.png">
 			</div>
     	    <div class="col-4">
-				<h3> Welcome <br> <?php if (isset($_SESSION["id"])) {	echo $_SESSION["id"]; }?>
-				</h3>
+				<?php 
+				if (isset($_SESSION["id"])) {
+
+				echo "<h3> Welcome ".$_SESSION["id"]."!</h3>";}
+				?>
     	        <p>	<a class="nav-item nav-link" href="#" style="color: #FFFFFF">Edit Profile
 					</a>
 					<a class="nav-item nav-link" href="#" style="color: #FFFFFF">To-Do List
@@ -32,7 +36,7 @@
     </div>
 	<div class="row">
 		<div class="col-sm-9">
-			<div class="classes">
+			<div class="classes p-8 m-20">
 				<div class="row">
 					<div class="col-lg-4 col-md-6">
 						<div class="blue-green">

@@ -129,8 +129,8 @@ function createUser($conn, $name,$sid,$email,$branch,$semester,$section,$pwd)
     mysqli_stmt_execute($stmt_login);
     mysqli_stmt_close($stmt_login);
 
-
-    header("location: ../create_account.php?error=none");
+    $_SESSION["id"]= $sid;
+    header("location: ../../Dashboard/dashboard.php");
     exit();
 }
 
@@ -187,10 +187,9 @@ function loginUser($conn, $id, $pwd , $type)
         header("location:../login.php?error=wrongPassword");
         exit();
     } else if ($pwd === $pwdHashed) {
-        session_start();
-        $_SESSION["id"] = $LoginuidExists["Login_id"];
-        //$_SESSION["usersuid"] = $uidExists["usersUid"];
-
+        // session_start();
+        $_SESSION["id"] = $LoginuidExists["Login_ID"];
+        // echo $LoginuidExists["Login_ID"];
         header("location: ../../Dashboard/dashboard.php");
 
         exit();

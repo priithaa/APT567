@@ -14,8 +14,9 @@ body{
 }
 .green
 {   position: absolute;
-    width: 340px;
-    height:108px;
+    width: auto;
+    height:auto;
+    padding: 10px;
     left: 50px;
     top: 22px;
     background: #8EE4AF;
@@ -24,11 +25,10 @@ body{
 .green a{
     font-family: Asul;
     font-weight: bold;
-    font-size: 80px;
+    font-size: 60px;
     margin-top: 10px;
     text-decoration: none;
     color:  #05386B;
-    font-size: 80px;
 }
 
 .btn{
@@ -53,38 +53,44 @@ body{
   
 .blue{
 position: absolute;
-width: 1263px;
-height: 500px;
+width: 100%;
+height: auto;
 left: 0px;
 top: 157px;
 background: #05386B;
 }
 
+
 .white{
-    position: absolute;;
+    position: absolute;
     width: 450px;
-    height: 600px;
+    height: auto;
     left: 50px;
     top: 40px;
     background: #ffffff;
     box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 17px;
 
 }
+
 
 /*  LOGIN FORM  */
 
 .LoginForm
 {
-    padding-top: 30px;
+    position: relative;
+    padding-top: 25px;
     width: 500px;
-    height: 600px;
-    background: #FFFFFF;
+    height: auto;
+    background-color: #FFFFFF;
     box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 17px;
 }
 
 .LoginForm form{
     padding-left: 60px;
     display: inline-block;
+
 }
 .LoginForm h3
 {
@@ -94,10 +100,11 @@ background: #05386B;
     font-size: 35px;
     line-height: 46px;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 15px;
     color: #05386B;
 
 }
+
 .LoginForm h6
 {
     font-family: Lato;
@@ -105,10 +112,9 @@ background: #05386B;
     font-weight: normal;
     font-size: 20px;
     line-height: 36px;
-
     color: #000000;
-
     mix-blend-mode: normal;
+    margin-top: 3%;
     
 }
 
@@ -118,12 +124,13 @@ background: #05386B;
     border-bottom: 1px solid #000000;
     width: 400px;
     /* padding-left: 60px; */
-    margin-bottom: 50px;;
+    margin-bottom: 0.5px;
 }
 
 .LoginForm select
 {
     size: 500px;
+    margin-bottom: 5px;
 }
 .LoginForm option
 {
@@ -131,7 +138,6 @@ background: #05386B;
      border-bottom: 1px solid #000000;
      /* width: 10000px; */
     /* padding-left: 60px; */
-    /* margin-bottom: 50px; */
 }
 
 .LoginForm button{
@@ -149,6 +155,7 @@ background: #05386B;
     font-weight: normal;
     font-size: 30px;
     color: #000000;
+    margin-top: 10%;
 }
 
 .LoginForm p
@@ -160,7 +167,7 @@ background: #05386B;
     line-height: 30px;
     display: inline-block;
     color: #2F6434;
-    padding-left: 60px;
+  /*  padding-left: 60px;*/
 
 }
 
@@ -199,24 +206,26 @@ background: #05386B;
 .createblue{
     height: auto;
     width: 100%;
-    margin-top: 10%;
+    margin-top: 200px;
     background-color: #05386B;
     }
 
 .CreateAccountForm
 {   position: relative;
     top: 35px;
-    
-    /* padding-top: 30px; */
+    border-radius: 17px;   
     margin-left: 35%; 
     width: 527px;
     height: auto;
     background: #FFFFFF;
     box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.25);
+    align-self: center;
     
 }
 
 .CreateAccountForm form{
+    display: flex;
+    align-items: center;
     padding-left: 60px;
     display: inline-block;
 }
@@ -237,13 +246,13 @@ background: #05386B;
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 36px;
 
     color: #000000;
 
     mix-blend-mode: normal;
-    margin-top: 5%;
+    margin-top: 0px;
 }
 
 .CreateAccountForm input
@@ -273,7 +282,7 @@ background: #05386B;
     color: #000000;
 }
 
-.CreateAccountForm p
+/* .CreateAccountForm p
 {
     font-family: Lato;
     font-style: normal;
@@ -283,6 +292,8 @@ background: #05386B;
     display: inline-block;
     color: #2F6434;
     padding-left: 60px;
+    margin-top: 0px;
+    margin-bottom: 0px;;
 
 }
 
@@ -291,10 +302,10 @@ background: #05386B;
     text-decoration: none;
     color: #2F6434;
 }
- 
+  */
 .error{
     margin-bottom: 0%;
-    /* display: inline; */
+    display: inline-block;
 }
 
 .error p{
@@ -303,7 +314,10 @@ background: #05386B;
     font-weight: normal;
     color: red;
     font-size: smaller;
-    margin-left: 15%;
+    margin:0px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+
 }
 
 

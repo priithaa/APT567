@@ -23,7 +23,7 @@ session_start();
 
         <div class="col-6">
             <div class="green">
-                <h1><a href="login.php">APT567
+                <h1><a href="login.php">Portal
                     </a>
                 </h1>
             </div>
