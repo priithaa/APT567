@@ -1,4 +1,5 @@
 <?php session_start(); 
+	echo $_SESSION["type"];
 	if(!isset($_SESSION["id"]))
 	header("location: ../Login/login.php");
 ?>
