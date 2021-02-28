@@ -4,7 +4,6 @@
     $sql = "Select Course_ID, F_ID from class_course where Class_ID =
     (Select Class_ID from student_info where S_ID = ?);";
     $stmt = mysqli_stmt_init($conn);
-
    if(!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../dashboard.php?error=stmtfaileduid");
         exit();

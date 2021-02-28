@@ -4,9 +4,10 @@ if (!isset($_SESSION["id"]))
 	header("location: ../Login/login.php");
 
 require_once 'includes/dbh.inc.php';
+require_once 'includes/functions.inc.php';
 
 if ($_SESSION["type"] === "F")
-	echo "hi";
+	require_once "includes/faculty_sql.inc.php";
 else if ($_SESSION["type"] === "S")
 	require_once "includes/student_sql.inc.php";
 
@@ -53,17 +54,37 @@ else if ($_SESSION["type"] === "S")
 		<div class="col-sm-9">
 			<div class="classes p-8 m-20">
 				<div class="row">
-					<?php while($rows = mysqli_fetch_assoc($resultData))   { // $rows;?>
-					<div class="col-lg-4 col-md-6">
-						<div class="blue-green">
-							<h3><a href=""><?php echo $rows["Course_ID"];?> 
-								</a>
-							</h3>
-							<p><?php echo $rows["F_ID"];?> 
-							</p>
-						</div>
-					</div>
-				 <?php } ?>
+					<?php if ($_SESSION["type"] === "S") { ?>
+						<?php while ($rows = mysqli_fetch_assoc($resultData)) { // $rows;
+						?>
+							<div class="col-lg-4 col-md-6">
+								<div class="blue-green">
+									<h3><a href=""><?php echo fetchCourseName($conn, $rows["Course_ID"]); ?>
+										</a>
+									</h3>
+									<p><?php echo fetchFacultyName($conn, $rows["F_ID"]); ?>
+									</p>
+								</div>
+							</div>
+						<?php }  ?>
+						<?php mysqli_stmt_close($stmt); ?>
+					<?php } ?>
+
+					<?php if ($_SESSION["type"] === "F") { ?>
+						<?php while ($rows = mysqli_fetch_assoc($resultData)) { // $rows;
+						?>
+							<div class="col-lg-4 col-md-6">
+								<div class="blue-green">
+									<h3><a href=""><?php echo fetchCourseName($conn, $rows["Course_ID"]); ?>
+										</a>
+									</h3>
+									<?php $rows = fetchClassInfo($conn, $rows["Class_ID"]); ?>
+									<p><?php echo "B.Tech ".$rows["Branch"].", ". "Sem: ".$rows["Semester"].", Section: ".$rows["Section"]; ?> </p>
+								</div>
+							</div>
+						<?php }  ?>
+						<?php mysqli_stmt_close($stmt); ?>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
