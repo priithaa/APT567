@@ -130,7 +130,7 @@ function createUser($conn, $name,$sid,$email,$branch,$semester,$section,$pwd)
     mysqli_stmt_close($stmt_login);
 
     $_SESSION["id"]= $sid;
-    $_SESSION["id"] = $type;
+    $_SESSION["type"] =$type;
     header("location: ../../Dashboard/dashboard.php");
     exit();
 }
@@ -191,6 +191,7 @@ function loginUser($conn, $id, $pwd , $type)
         // session_start();
         $_SESSION["id"] = $LoginuidExists["Login_ID"];
         $_SESSION["type"] = $LoginuidExists["Login_type"];
+        // echo $LoginuidExists["Login_ID"];
         header("location: ../../Dashboard/dashboard.php");
 
         exit();
