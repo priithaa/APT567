@@ -16,19 +16,6 @@
 
 <body>
 
-    <!-- bootstrap js -->
-    <script >
-        var menu_btn = document.querySelector("#menu-btn");
-        var sidebar = document.querySelector("#sidebar");
-        var container = document.querySelector(".my-container");
-
-        menu_btn.addEventListener("click", () => {
-            sidebar.classList.toggle("active-nav");
-            container.classList.toggle("active-cont");
-        });
-
-    </script>
-
   <!-- Side-Nav -->
   <div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar">
         <ul class="nav flex-column text-white w-100">
@@ -93,6 +80,19 @@
       </div>
     </nav>
     <!--End Top Nav -->
+
+    <!-- bootstrap js -->
+    <script >
+        var menu_btn = document.querySelector("#menu-btn");
+        var sidebar = document.querySelector("#sidebar");
+        var container = document.querySelector(".my-container");
+
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav");
+            container.classList.toggle("active-cont");
+        });
+
+    </script>
 
     <!--main content begins-->
     <div class="row">
