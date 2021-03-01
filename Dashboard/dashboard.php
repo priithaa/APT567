@@ -28,25 +28,38 @@ else if ($_SESSION["type"] === "S")
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-3"><img src="ProfilePicture.png">
-			</div>
-			<div class="col-4">
-				<?php
-				if (isset($_SESSION["id"])) {
+			<div class="col-md-2">
+				<?php $rows = fetchStudentPic($conn, $_SESSION["id"]);
+				if(!empty($rows['S_pp']))
+				echo '<img src="data:image/jpeg;base64,' . base64_encode($rows['S_pp']) . '" width="200	" height = "200" />'; 
+				else {
+					echo
+					'<img src="ProfilePicture.png">';
+				}?>
 
-					echo "<h3> Welcome " . $_SESSION["id"] . "!</h3>";
-				}
-				?>
-				<p> <a class="nav-item nav-link" href="#" style="color: #FFFFFF">Edit Profile
-					</a>
-					<a class="nav-item nav-link" href="#" style="color: #FFFFFF">To-Do List
-					</a>
-				</p>
 			</div>
-			<div class="col-5">
+			<div class="col-md-10">
+				<nav class="navbar navbar-expand-md navbar-dark ">
+					<h3> <?php echo "Welcome ".$_SESSION["id"];?></h3>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item">
+								<a class="nav-link" href=""> To-do List </a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link " href=""> Edit Profile </a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="../Login/includes/logout.inc.php"> Logout</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
 
-				<a href="../Login/includes/logout.inc.php"> <button type="button" class="btn btn-light">Log Out</button> </a>
-			</div>
 		</div>
 
 	</div>
@@ -79,7 +92,7 @@ else if ($_SESSION["type"] === "S")
 										</a>
 									</h3>
 									<?php $rows = fetchClassInfo($conn, $rows["Class_ID"]); ?>
-									<p><?php echo "B.Tech ".$rows["Branch"].", ". "Sem: ".$rows["Semester"].", Section: ".$rows["Section"]; ?> </p>
+									<p><?php echo "B.Tech " . $rows["Branch"] . ", " . "Sem: " . $rows["Semester"] . ", Section: " . $rows["Section"]; ?> </p>
 								</div>
 							</div>
 						<?php }  ?>
