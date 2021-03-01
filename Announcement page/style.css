@@ -136,3 +136,24 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
   }
+
+
+  /*form*/
+
+  .ann_text_section h4{
+    padding-top: 20px;
+  }
+
+  .my-container input {
+    border-radius: 3px;
+    padding: 2px 10px;
+  }
+
+  .form-control{
+    padding: 2px 10px;
+    margin-bottom: 20px;
+  }
+
+  label{
+    margin-bottom: 5px;
+  }
