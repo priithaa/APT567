@@ -7,7 +7,8 @@
 {
 	background : #05386B;
 	background-image: url("../Banner_Dashboard.png");
-	height:230px;
+	height:auto;
+	width:100%;
 }
 
 .container-fluid a:hover{
@@ -15,47 +16,76 @@
 }
 
 .container-fluid img{
-  position: relative;
-  right:30px;
-  top: 40px;
-  padding-bottom: 20px;
-  margin-left: 50px;
-  margin-top: 0px;
   border-radius: 50%;
+  margin: 5%;
+  display: inline-block;
 }
 .container-fluid h3{
   color: #FFFFFF;
-  position: relative;
-  left: -171px;
-  top: 50px;
+  display: inline;
+
+}
+
+.navbar
+{
+  margin-top: 3%;
+}
+.navbar-brand
+{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+
+
+}
+
+.nav-item
+{
+  padding: 0 18px;
+}
+
+.nav-link
+{
+  font-size: 1.2rem;
+  font-family: "Montserrat",sans-serif;
+  /* text-color: antiquewhite; */
+}
+
+ul
+{
+	margin-left: 60%;
 }
 
 /*Tester comment*/
 
-.container-fluid p a
+.container-fluid p 
 {
-	display: inline-block;
+	display: inline;
+	font-size: small;
 	position: relative;
-  	right: 181px;
-  	top: 47px;
- }
-
-.container-fluid .col-4 h3{
-	position: relative;
-  	right: 80px;
+	right: 30%;
+	top:45%;
+	float: left;
 }
 
+/* .container-fluid .col-4 h3{
+	position: relative;
+  	right: 80px;
+} */
+
 .btn{
-  position: relative;
   color: #05386B;
-  top: 50px;
-  left: 475px;
 }
 
 .classes a
 {
 	color:  #ffff;
 	text-decoration: none;
+}
+
+.classes a:hover
+{
+color:  #05386B;
 }
 
 .classes
