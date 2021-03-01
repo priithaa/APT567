@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION["id"]))
+  header("location: ../Login/login.php");
+
+require_once 'includes/dbh.inc.php';
+require_once 'includes/functions.inc.php';
+
+$row = fetchCourseInfo($conn,$_GET["Course_ID"]);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +16,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Announcements</title>
-  
+
   <!-- bootstrap 5 css -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
   <!-- BOX ICONS CSS-->
@@ -20,7 +31,7 @@
   <div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar">
         <ul class="nav flex-column text-white w-100">
             <a href="#" class="nav-link h3 text-white my-2">
-                Menu Board </br>CS302
+                Menu Board </br> <?php echo $_GET["Course_ID"]; ?>
             </a>
             <li class="nav-link">
               <a href = "">
@@ -74,7 +85,7 @@
     <!-- Top Nav -->
     <nav class="navbar top-navbar navbar-light bg-light px-5">
       <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
-      <h3 class="text-dark p-3"> CS302 > Data Communication and Networks  </h3>
+      <h3 class="text-dark p-3"> <?php echo $row["Course_ID"].">".$row["Course_name"]; ?>  </h3>
       <div>
         <button type="button" class="btn btn-light" > Dashboard </button>
         <button type="button" class="btn btn-light" > LogOut </button>
@@ -97,7 +108,3 @@
 
     <!--main content begins-->
     <div class="row">
-      
-      
-
-    

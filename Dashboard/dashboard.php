@@ -31,7 +31,7 @@ else if ($_SESSION["type"] === "S")
 			<div class="col-md-2">
 				<?php $rows = fetchStudentPic($conn, $_SESSION["id"]);
 				if(!empty($rows['S_pp']))
-				echo '<img src="data:image/jpeg;base64,' . base64_encode($rows['S_pp']) . '" width="200	" height = "200" />'; 
+				echo '<img src="data:image/jpeg;base64,' . base64_encode($rows['S_pp']) . '" width="200	" height = "200" />';
 				else {
 					echo
 					'<img src="ProfilePicture.png">';
@@ -79,7 +79,7 @@ else if ($_SESSION["type"] === "S")
 						?>
 							<div class="col-lg-4 col-md-6">
 								<div class="blue-green">
-									<h3><a href=""><?php echo fetchCourseName($conn, $rows["Course_ID"]); ?>
+									<h3><a href="../Overview/Overview_template.php?Course_ID=<?php echo $rows["Course_ID"];?>"><?php echo fetchCourseName($conn, $rows["Course_ID"]); ?>
 										</a>
 									</h3>
 									<p><?php echo fetchFacultyName($conn, $rows["F_ID"]); ?>
@@ -95,7 +95,7 @@ else if ($_SESSION["type"] === "S")
 						?>
 							<div class="col-lg-4 col-md-6">
 								<div class="blue-green">
-									<h3><a href=""><?php echo fetchCourseName($conn, $rows["Course_ID"]); ?>
+									<h3><a href="../Overview/Overview_template.php?Course_ID=<?php echo $rows["Course_ID"];?>"><?php echo fetchCourseName($conn, $rows["Course_ID"]); ?>
 										</a>
 									</h3>
 									<?php $rows = fetchClassInfo($conn, $rows["Class_ID"]); ?>
