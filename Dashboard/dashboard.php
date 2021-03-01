@@ -40,7 +40,14 @@ else if ($_SESSION["type"] === "S")
 			</div>
 			<div class="col-md-10">
 				<nav class="navbar navbar-expand-md navbar-dark ">
-					<h3> <?php echo "Welcome ".$_SESSION["id"];?></h3>
+					<h3> <?php if($_SESSION["type"]=="F")
+						echo "Welcome ".fetchFacultyName($conn,$_SESSION["id"]);
+						else {
+								# code...
+								echo "Welcome " . fetchStudentName($conn, $_SESSION["id"]);
+						}?>
+
+					</h3>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
