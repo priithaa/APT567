@@ -54,7 +54,7 @@
             </li>
             <li class="nav-link">
               <a href="">
-                <i class='bx bx-library' ></i>
+                <i class='bx bxs-book-alt'></i>
                 <span class="mx-2">Resources</span>
               </a>
             </li>
