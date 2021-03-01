@@ -64,6 +64,7 @@
             <a href=""><i class="bx bxl-instagram-alt text-white"></i></a>
             <a href=""><i class="bx bxl-twitter px-2 text-white"></i></a>
             <a href=""><i class="bx bxl-facebook text-white"></i></a>
+            <a href=""><i class="bx bxl-linkedin text-white"></i></a>
         </span>
   </div>
 
