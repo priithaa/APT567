@@ -57,7 +57,7 @@ else if ($_SESSION["type"] === "S")
 								<a class="nav-link" href=""> To-do List </a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link " href=""> Edit Profile </a>
+								<a class="nav-link " href="EditProfile.php"> Edit Profile </a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="../Login/includes/logout.inc.php"> Logout</a>

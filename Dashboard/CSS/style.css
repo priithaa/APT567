@@ -58,7 +58,7 @@ ul
 
 /*Tester comment*/
 
-.container-fluid p 
+.container-fluid p
 {
 	display: inline;
 	font-size: small;
@@ -142,4 +142,30 @@ color:  #05386B;
 	top:17px;
 	color: #FFFFFF;
 	text-decoration: none;
+}
+/*Edit Profile*/
+.container{
+	margin-top:20px;
+	margin-left: 30%;
+	 background:#FFFFFF;
+
+}
+
+input[name=EditProfileName] {
+			pointer-events: none;
+}
+
+input[name=EditProfileUsername] {
+			pointer-events: none;
+}
+
+input[name=EditProfileEmail] {
+			pointer-events: none;
+}
+
+.error .update{
+	color: #00FF00;
+}
+.error p{
+	color: red;
 }
