@@ -101,13 +101,13 @@ else if ($_SESSION["type"] === "S")
           <div class="card-body">
             <div class="e-profile">
               <div class="row">
-                <div class="col-12 col-sm-auto mb-3">
+                <!-- <div class="col-12 col-sm-auto mb-3">
                   <div class="mx-auto" style="width: 140px;">
                     <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
                       <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                   <div class="text-center text-sm-left mb-2 mb-sm-0">
 
@@ -124,10 +124,10 @@ else if ($_SESSION["type"] === "S")
                           echo  $row['S_email'];
                       }?></p>
                     <div class="mt-2">
-                      <!--<button class="btn btn-primary" type="button">
+                      <!-- <button class="btn btn-primary" type="button">
                         <i class="fa fa-fw fa-camera"></i>
                         <span>Change Photo</span>
-                      </butto-->
+                      </button> -->
                          <form name="frmImage" enctype="multipart/form-data" action="" method="post" class="frmImageUpload">
                             <i class="fa fa-fw fa-camera"></i>
                             <label>Change Photo:</label>
@@ -220,7 +220,7 @@ else if ($_SESSION["type"] === "S")
                             </div>
                           </div>
                         </div>
-                        </div>-->
+                        </div>
                       </div>
                     </div>
                     <div class="row">
