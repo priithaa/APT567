@@ -14,7 +14,15 @@
                 </p>
             </div>
 
-            <form id="ann_add_form" method="post">
+            <div class="update">
+                <?php 
+                        if (isset($_GET["title"])) {
+                            echo "<p>".$_GET['title']." -added successfully</p>";
+                        }
+                ?>
+              </div>
+
+            <form id="ann_add_form" action='includes/add_ann.inc.php?Course_ID=<?php echo $row["Course_ID"]; ?>'' method="post">
                 <div class="controls">
                   <div class="row">
                     <div class="col-md-12">
@@ -36,7 +44,7 @@
                     </div>
                                     
                     <div>
-                      <input type="submit" class="btn btn-success btn-send" value="Announce">
+                      <input type="submit" class="btn btn-success btn-send" name="submit_ann" value="Announce">
                     </div>
 
                   </div>
