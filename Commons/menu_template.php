@@ -3,8 +3,8 @@ session_start();
 if (!isset($_SESSION["id"]))
   header("location: ../Login/login.php");
 
-require_once 'includes/dbh.inc.php';
-require_once 'includes/functions.inc.php';
+require_once '../Commons/includes/dbh.inc.php';
+require_once '../Commons/includes/functions.inc.php';
 
 $row = fetchCourseInfo($conn,$_GET["Course_ID"]);
 ?>
@@ -22,7 +22,7 @@ $row = fetchCourseInfo($conn,$_GET["Course_ID"]);
   <!-- BOX ICONS CSS-->
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
   <!-- custom css -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../Commons/style.css" />
 </head>
 
 <body>
@@ -34,7 +34,7 @@ $row = fetchCourseInfo($conn,$_GET["Course_ID"]);
                 Menu Board </br> <?php echo $_GET["Course_ID"]; ?>
             </a>
             <li class="nav-link">
-              <a href = "">
+              <a href = '../Overview/Overview_template.php?Course_ID=<?php echo $row["Course_ID"];?>'>
                 <i class="bx bx-book-reader"></i>
                 <span class="mx-2">Overview</span>
               </a>
@@ -46,7 +46,13 @@ $row = fetchCourseInfo($conn,$_GET["Course_ID"]);
               </a>
             </li>
             <li class="nav-link">
-              <a href="">
+            <?php if($_SESSION["type"]=="F")
+						echo '<a href="../Announcement/teacher_template.php?Course_ID='.$row["Course_ID"].'">';
+						  else
+								echo '<a href="../Announcement/student_template.php?Course_ID='.$row["Course_ID"].'">';
+              ?>
+
+              
                 <i class="bx bx-conversation"></i>
                 <span class="mx-2">Announcements</span>
               </a>
@@ -87,8 +93,8 @@ $row = fetchCourseInfo($conn,$_GET["Course_ID"]);
       <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
       <h3 class="text-dark p-3"> <?php echo $row["Course_ID"].">".$row["Course_name"]; ?>  </h3>
       <div>
-        <button type="button" class="btn btn-light" > Dashboard </button>
-        <button type="button" class="btn btn-light" > LogOut </button>
+        <a href="../Dashboard/dashboard.php"><button type="button" class="btn btn-light" > Dashboard </button></a>
+        <a href="../Login/includes/logout.inc.php"><button type="button" class="btn btn-light" > LogOut </button></a>
       </div>
     </nav>
     <!--End Top Nav -->

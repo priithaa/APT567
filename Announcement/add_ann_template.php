@@ -1,4 +1,4 @@
-<?php require_once 'menu_template.php' ?>
+<?php require_once '../Commons/menu_template.php' ?>
 
 <div class="col-sm-9">
         <div class="container">
@@ -54,4 +54,4 @@
         </div>
       </div>
 
-<?php require_once 'twitter_template.php' ?>
+<?php require_once '../Commons/twitter_template.php' ?>
