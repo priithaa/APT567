@@ -1,0 +1,15 @@
+<?php
+
+    //  
+    $sql = "Select Class_ID,Course_ID from class_course where F_ID = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../dashboard.php?error=stmtfaileduid");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $_SESSION["id"]);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+

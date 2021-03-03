@@ -1,0 +1,171 @@
+*{
+	padding: 0;
+	margin : 0;
+}
+
+.container-fluid
+{
+	background : #05386B;
+	background-image: url("../Banner_Dashboard.png");
+	height:auto;
+	width:100%;
+}
+
+.container-fluid a:hover{
+  background-color: #93e9be;
+}
+
+.container-fluid img{
+  border-radius: 50%;
+  margin: 5%;
+  display: inline-block;
+}
+.container-fluid h3{
+  color: #FFFFFF;
+  display: inline;
+
+}
+
+.navbar
+{
+  margin-top: 3%;
+}
+.navbar-brand
+{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+
+
+}
+
+.nav-item
+{
+  padding: 0 18px;
+}
+
+.nav-link
+{
+  font-size: 1.2rem;
+  font-family: "Montserrat",sans-serif;
+  /* text-color: antiquewhite; */
+}
+
+ul
+{
+	margin-left: 60%;
+}
+
+/*Tester comment*/
+
+.container-fluid p
+{
+	display: inline;
+	font-size: small;
+	position: relative;
+	right: 30%;
+	top:45%;
+	float: left;
+}
+
+/* .container-fluid .col-4 h3{
+	position: relative;
+  	right: 80px;
+} */
+
+.btn{
+  color: #05386B;
+}
+
+.classes a
+{
+	color:  #ffff;
+	text-decoration: none;
+}
+
+.classes a:hover
+{
+color:  #05386B;
+}
+
+.classes
+{
+	margin-top: 20px;
+	margin-right:20px;
+	padding: 20px;
+}
+.blue-green
+{
+	width: 310px;
+	height: 146px;
+	/*background-color: black;*/
+	/*margin: 2px;*/
+	background: linear-gradient(108.38deg, #23C0B6 0%, #44E898 110.06%);
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	text-align: left;
+	padding-top: 5px;
+	padding-left: 5px;
+	margin-left: 2px;
+	margin-bottom: 20px;
+	color: #ffff;
+}
+
+.classes .row
+{
+	margin-left: 25px;
+	/*margin-right: -50px;*/
+}
+
+.footer
+{
+	background-color: #05386B;
+	height: 111px;
+	left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: center;
+}
+.footer p{
+	position: relative;
+	top: 25px;
+}
+
+.fa
+{
+	margin: 0 18px;
+	margin-bottom: 20px;
+}
+.footer a{
+	position: relative;
+	top:17px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+/*Edit Profile*/
+.container{
+	margin-top:20px;
+	margin-left: 30%;
+	 background:#FFFFFF;
+
+}
+
+input[name=EditProfileName] {
+			pointer-events: none;
+}
+
+input[name=EditProfileUsername] {
+			pointer-events: none;
+}
+
+input[name=EditProfileEmail] {
+			pointer-events: none;
+}
+
+.error .update{
+	color: #00FF00;
+}
+.error p{
+	color: red;
+}

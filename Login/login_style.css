@@ -1,0 +1,323 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url("login_background.png");
+    background-size: cover;
+    height: 900px;
+}
+.logo
+{
+    margin-bottom: 5%;
+}
+.green
+{   position: absolute;
+    width: auto;
+    height:auto;
+    padding: 10px;
+    left: 50px;
+    top: 22px;
+    background: #8EE4AF;
+}
+
+.green a{
+    font-family: Asul;
+    font-weight: bold;
+    font-size: 60px;
+    margin-top: 10px;
+    text-decoration: none;
+    color:  #05386B;
+}
+
+.btn{
+    position: relative;
+    color: #05386B;
+    top: 22px;
+    left: 300px;
+    width: 300px;
+    height: 64px;
+    font-family: Didact Gothic;
+    font-size: 30px;
+    line-height: 39px;
+    text-align: center;
+    color: #05386B;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.green h1{
+    text-align: center;
+    color: #000000;
+}
+  
+.blue{
+position: absolute;
+width: 100%;
+height: auto;
+left: 0px;
+top: 157px;
+background: #05386B;
+}
+
+
+.white{
+    position: absolute;
+    width: 450px;
+    height: auto;
+    left: 50px;
+    top: 40px;
+    background: #ffffff;
+    box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 17px;
+
+}
+
+
+/*  LOGIN FORM  */
+
+.LoginForm
+{
+    position: relative;
+    padding-top: 25px;
+    width: 500px;
+    height: auto;
+    background-color: #FFFFFF;
+    box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 17px;
+}
+
+.LoginForm form{
+    padding-left: 60px;
+    display: inline-block;
+
+}
+.LoginForm h3
+{
+    font-family: Didact Gothic;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 46px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #05386B;
+
+}
+
+.LoginForm h6
+{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 36px;
+    color: #000000;
+    mix-blend-mode: normal;
+    margin-top: 3%;
+    
+}
+
+.LoginForm input
+{
+    border: none;
+    border-bottom: 1px solid #000000;
+    width: 400px;
+    /* padding-left: 60px; */
+    margin-bottom: 0.5px;
+}
+
+.LoginForm select
+{
+    size: 500px;
+    margin-bottom: 5px;
+}
+.LoginForm option
+{
+     border: none;
+     border-bottom: 1px solid #000000;
+     /* width: 10000px; */
+    /* padding-left: 60px; */
+}
+
+.LoginForm button{
+    width: 200px;
+    height: 60px;
+    left: 130px;
+    top: 680px;
+
+    background: #8EE4AF;
+    box-shadow: 8px 6px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    font-family: Didact Gothic;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    color: #000000;
+    margin-top: 10%;
+}
+
+.LoginForm p
+{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 30px;
+    display: inline-block;
+    color: #2F6434;
+  /*  padding-left: 60px;*/
+
+}
+
+.LoginForm p a
+{
+    text-decoration: none;
+    color: #2F6434;
+}
+
+
+/* MAIN LOGIN PAGE */
+
+.side p{
+    position: relative;
+    left: 600px;
+    top: 40px;
+    color: white;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: center;
+    font-family: Asul;
+    width: 600px;
+    height: 184px;
+}
+
+.side img{
+    position: relative;
+    left: 620px;
+    width: 600px;
+    
+}
+
+
+/* CREATE ACCOUNT CSS*/
+
+.createblue{
+    height: auto;
+    width: 100%;
+    margin-top: 200px;
+    background-color: #05386B;
+    }
+
+.CreateAccountForm
+{   position: relative;
+    top: 35px;
+    border-radius: 17px;   
+    margin-left: 35%; 
+    width: 527px;
+    height: auto;
+    background: #FFFFFF;
+    box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.25);
+    align-self: center;
+    
+}
+
+.CreateAccountForm form{
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+    display: inline-block;
+}
+.CreateAccountForm h3
+{
+    font-family: Didact Gothic;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 46px;
+    text-align: center;
+    color: #05386B;
+    margin-top: 20px;
+
+}
+.CreateAccountForm h6
+{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 36px;
+
+    color: #000000;
+
+    mix-blend-mode: normal;
+    margin-top: 0px;
+}
+
+.CreateAccountForm input
+{
+    border: none;
+    border-bottom: 1px solid #000000;
+    width: 400px;
+    /* padding-left: 60px; */
+}
+
+.CreateAccountForm button{
+
+    width: 200px;
+    height: 60px;
+    left: 230px;
+    top: 688px;
+    margin-left: 95px;
+    margin-top: 5%;
+    background: #8EE4AF;
+    box-shadow: 8px 6px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    font-family: Didact Gothic;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    color: #000000;
+}
+
+/* .CreateAccountForm p
+{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 30px;
+    display: inline-block;
+    color: #2F6434;
+    padding-left: 60px;
+    margin-top: 0px;
+    margin-bottom: 0px;;
+
+}
+
+.CreateAccountForm p a
+{
+    text-decoration: none;
+    color: #2F6434;
+}
+  */
+.error{
+    margin-bottom: 0%;
+    display: inline-block;
+}
+
+.error p{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    color: red;
+    font-size: smaller;
+    margin:0px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+
+}
+
+
