@@ -101,7 +101,7 @@ function createUser($conn, $name,$sid,$email,$branch,$semester,$section,$pwd)
 
     $type = "S";
     // Detremining which user the login table has.
-    $sql = "INSERT INTO student_info VALUES (?,?,?,?);";
+    $sql = "INSERT INTO student_info(S_ID,S_name,S_email, CLASS_ID) VALUES (?,?,?,?);";
     $sql_login = "INSERT INTO login_info values(?,?,?,?);";
 
     // for filling info in login table.
@@ -109,12 +109,12 @@ function createUser($conn, $name,$sid,$email,$branch,$semester,$section,$pwd)
     $stmt_login = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt1, $sql)) {
-        header("location: ../signup.php?error=stmtfailedfinal");
+        header("location: ../login.php?error=stmtfailedfinal");
         exit();
     }
 
     if (!mysqli_stmt_prepare($stmt_login, $sql_login)) {
-        header("location: ../signup.php?error=stmtfailedfinal");
+        header("location: ../login.php?error=stmtfailedfinal");
         exit();
     }
 
