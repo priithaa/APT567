@@ -12,30 +12,31 @@
                 </button>
               </a>
             </div>
-            <div class="whitebox">
-                <div class ="contentbox">
-                    <div class="row Ann_head">
-                        <div class="col sm Ann_title">
-                            <h5>
-                                <a href="">Quiz on 29th Feb 2021 </a>
-                            </h5>
+            <?php while ($rows = mysqli_fetch_assoc($resultData)) { // $rows;
+						?>
+                <div class="whitebox">
+                    <div class ="contentbox">
+                        <div class="row Ann_head">
+                            <div class="col sm Ann_title">
+                                <h5>
+                                    <a href=""><?php echo $rows['Ann_title'];?> </a>
+                                </h5>
+                            </div>
+                            <div class="col sm Ann-date">
+                                <h6>Posted: <?php echo $rows['Ann_date'];?></h6>
+                            </div>
                         </div>
-                        <div class="col sm Ann-date">
-                            <h6>Posted: 21/02/2021</h6>
+                        <div class="row Ann_desc">
+                            <?php  echo $rows['Ann_desc'];?>
                         </div>
-                    </div>
-                    <div class="row Ann_desc">
-                        An article is any member of a class of dedicated words that are 
-                        used with noun phrases to mark the identifiability of the referents of 
-                        the noun phrases. The category of articles constitutes a part of speech. 
-                        In English, both "the" and "a" are articles, which combine with a noun to 
-                        form a noun phrase. Wikipedia
-                    </div>
-                    <div class="row Ann_delete">
-                      <button>Delete</button>
+                        <div class="row Ann_delete">
+                        <a href="includes/redirect_delete.inc.php?Ann_ID=<?php echo $rows["Ann_ID"];?>&Course_ID=<?php echo $rows["Course_ID"];?>">
+                            <button>Delete</button>
+                        </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php }  ?>
 
         </div>
       </div>
