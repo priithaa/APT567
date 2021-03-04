@@ -1,5 +1,7 @@
 <?php require_once '../Commons/menu_template.php' ?>
 
+<?php require_once 'includes/fetchAnnouncement.inc.php'; ?>
+
 <div class="col-sm-9">
         <div class="p-4 row">
             <div class="row Ann_add">

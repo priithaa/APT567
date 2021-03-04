@@ -28,7 +28,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="ann_add-title">Title*</label>
-                        <input id="form_title" type="text" name="title" class="form-control" placeholder="Please enter the title of the announcement" required="required" data-error="Title is required.">
+                        <input id="form_title" type="text" name="title" class="form-control" placeholder="Please enter the title of the announcement (MAX: 500 characters)" required="required" data-error="Title is required.">
                         <div class="help-block with-errors"></div>
                       </div>
                     </div>
@@ -38,7 +38,7 @@
                     <div>
                       <div class="form-group">
                         <label for="ann_add-desc">Description*</label>
-                        <textarea id="form_desc" name="desc" class="form-control" placeholder="Please enter the description of the announcement" rows="6" required="required" data-error="Please add a description."></textarea>
+                        <textarea id="form_desc" name="desc" class="form-control" placeholder="Please enter the description of the announcement  (MAX: 8000 characters)" rows="6" required="required" data-error="Please add a description."></textarea>
                         <div class="help-block with-errors"></div>
                       </div>
                     </div>

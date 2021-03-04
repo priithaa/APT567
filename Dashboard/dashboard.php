@@ -6,10 +6,18 @@ if (!isset($_SESSION["id"]))
 require_once 'includes/dbh.inc.php';
 require_once 'includes/functions.inc.php';
 
-if ($_SESSION["type"] === "F")
+if(isset($_SESSION["Course_ID"]))
+		unset($_SESSION["Course_ID"]);
+
+if ($_SESSION["type"] === "F"){
 	require_once "includes/faculty_sql.inc.php";
+	if(isset($_SESSION["Class_ID"]))
+		unset($_SESSION["Class_ID"]);
+}
 else if ($_SESSION["type"] === "S")
 	require_once "includes/student_sql.inc.php";
+
+
 
 ?>
 <!DOCTYPE html>
