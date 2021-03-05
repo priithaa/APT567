@@ -1,5 +1,6 @@
-<?php require_once 'menu_template.php';
+
+<?php require_once '../Commons/menu_template.php';
     echo $row["Course_overview"];
 
 
-    require_once 'twitter_template.php';
+    require_once '../Commons/twitter_template.php';
