@@ -47,7 +47,7 @@ $row = fetchCourseInfo($conn,$_SESSION["Course_ID"]);
               </a>
             </li>
             <li class="nav-link">
-            <?php if($_SESSION["type"]=="F")
+            <?php if($_SESSION["type"]==="F")
 						echo '<a href="../Announcement/teacher_template.php">';
 						  else
 								echo '<a href="../Announcement/student_template.php">';

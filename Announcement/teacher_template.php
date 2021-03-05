@@ -12,32 +12,63 @@
                 </button>
               </a>
             </div>
-            <?php while ($rows = mysqli_fetch_assoc($resultData)) { // $rows;
-						?>
+            <?php $rows = mysqli_fetch_assoc($resultData);
+                    if(empty($rows)){
+                        echo "<h3>SORRY, NOTHING TO SHOW</h3>";
+                    }
+                    else{
+                ?>
                 <div class="whitebox">
-                    <div class ="contentbox">
-                        <div class="row Ann_head">
-                            <div class="col sm Ann_title">
-                                <h5>
-                                    <a href=""><?php echo $rows['Ann_title'];?> </a>
-                                </h5>
+                        <div class ="contentbox">
+                            <div class="row Ann_head">
+                                <div class="col sm Ann_title">
+                                    <h5>
+                                        <a href=""><?php echo $rows['Ann_title'];?> </a>
+                                    </h5>
+                                </div>
+                                <div class="col sm Ann-date">
+                                    <h6>Posted: <?php echo $rows['Ann_date'];?></h6>
+                                </div>
                             </div>
-                            <div class="col sm Ann-date">
-                                <h6>Posted: <?php echo $rows['Ann_date'];?></h6>
+                            <div class="row Ann_desc">
+                                <?php  echo $rows['Ann_desc'];?>
                             </div>
-                        </div>
-                        <div class="row Ann_desc">
-                            <?php  echo $rows['Ann_desc'];?>
-                        </div>
-                        <div class="row Ann_delete">
+                            <div class="row Ann_delete">
                         <a href="includes/redirect_delete.inc.php?Ann_ID=<?php echo $rows["Ann_ID"];?>">
                             <button>Delete</button>
                         </a>
                         </div>
-                    </div>
+                        </div>
                 </div>
-            <?php }  ?>
-            <?php mysqli_stmt_close($stmt); ?>
+                <?php          
+                 while ($rows = mysqli_fetch_assoc($resultData)) { // $rows;
+                ?>
+                    <div class="whitebox">
+                        <div class ="contentbox">
+                            <div class="row Ann_head">
+                                <div class="col sm Ann_title">
+                                    <h5>
+                                        <a href=""><?php echo $rows['Ann_title'];?> </a>
+                                    </h5>
+                                </div>
+                                <div class="col sm Ann-date">
+                                    <h6>Posted: <?php echo $rows['Ann_date'];?></h6>
+                                </div>
+                            </div>
+                            <div class="row Ann_desc">
+                                <?php  echo $rows['Ann_desc'];?>
+                            </div>
+                            <div class="row Ann_delete">
+                        <a href="includes/redirect_delete.inc.php?Ann_ID=<?php echo $rows["Ann_ID"];?>">
+                            <button>Delete</button>
+                        </a>
+                        </div>
+                        </div>
+                    </div>
+                <?php }  ?>
+                <?php mysqli_stmt_close($stmt); ?>
+            <?php } ?>
+            
 
         </div>
       </div>
