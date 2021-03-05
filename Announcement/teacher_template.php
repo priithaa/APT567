@@ -5,7 +5,7 @@
 <div class="col-sm-9">
         <div class="p-4 row">
             <div class="row Ann_add">
-              <a href='add_ann_template.php?Course_ID=<?php echo $row["Course_ID"]; ?>'>
+              <a href='add_ann_template.php'>
                 <button>
                     <i class='bx bx-plus'></i>
                     <span class="mx-2"> Add Announcement</span>
@@ -30,13 +30,14 @@
                             <?php  echo $rows['Ann_desc'];?>
                         </div>
                         <div class="row Ann_delete">
-                        <a href="includes/redirect_delete.inc.php?Ann_ID=<?php echo $rows["Ann_ID"];?>&Course_ID=<?php echo $rows["Course_ID"];?>">
+                        <a href="includes/redirect_delete.inc.php?Ann_ID=<?php echo $rows["Ann_ID"];?>">
                             <button>Delete</button>
                         </a>
                         </div>
                     </div>
                 </div>
             <?php }  ?>
+            <?php mysqli_stmt_close($stmt); ?>
 
         </div>
       </div>

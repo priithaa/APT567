@@ -22,7 +22,7 @@
                 ?>
               </div>
 
-            <form id="ann_add_form" action='includes/add_ann.inc.php?Course_ID=<?php echo $row["Course_ID"]; ?>'' method="post">
+            <form id="ann_add_form" action='includes/add_ann.inc.php' method="post">
                 <div class="controls">
                   <div class="row">
                     <div class="col-md-12">

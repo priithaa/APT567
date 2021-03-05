@@ -6,7 +6,8 @@ if (!isset($_SESSION["id"]))
 require_once '../Commons/includes/dbh.inc.php';
 require_once '../Commons/includes/functions.inc.php';
 
-$row = fetchCourseInfo($conn,$_GET["Course_ID"]);
+$row = fetchCourseInfo($conn,$_SESSION["Course_ID"]);
+
 ?>
 
 <!DOCTYPE html>
@@ -31,10 +32,10 @@ $row = fetchCourseInfo($conn,$_GET["Course_ID"]);
   <div class="side-navbar active-nav d-flex justify-content-between flex-wrap flex-column" id="sidebar">
         <ul class="nav flex-column text-white w-100">
             <a href="#" class="nav-link h3 text-white my-2">
-                Menu Board </br> <?php echo $_GET["Course_ID"]; ?>
+                Menu Board </br> <?php echo $_SESSION["Course_ID"]; ?>
             </a>
             <li class="nav-link">
-              <a href = '../Overview/Overview_template.php?Course_ID=<?php echo $row["Course_ID"];?>'>
+              <a href = '../Overview/Overview_template.php'>
                 <i class="bx bx-book-reader"></i>
                 <span class="mx-2">Overview</span>
               </a>
@@ -47,9 +48,9 @@ $row = fetchCourseInfo($conn,$_GET["Course_ID"]);
             </li>
             <li class="nav-link">
             <?php if($_SESSION["type"]=="F")
-						echo '<a href="../Announcement/teacher_template.php?Course_ID='.$row["Course_ID"].'">';
+						echo '<a href="../Announcement/teacher_template.php">';
 						  else
-								echo '<a href="../Announcement/student_template.php?Course_ID='.$row["Course_ID"].'">';
+								echo '<a href="../Announcement/student_template.php">';
               ?>
 
               
@@ -91,7 +92,7 @@ $row = fetchCourseInfo($conn,$_GET["Course_ID"]);
     <!-- Top Nav -->
     <nav class="navbar top-navbar navbar-light bg-light px-5">
       <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
-      <h3 class="text-dark p-3"> <?php echo $row["Course_ID"].">".$row["Course_name"]; ?>  </h3>
+      <h3 class="text-dark p-3"> <?php echo $_SESSION["Course_ID"].">".$row["Course_name"]; ?>  </h3>
       <div>
         <a href="../Dashboard/dashboard.php"><button type="button" class="btn btn-light" > Dashboard </button></a>
         <a href="../Login/includes/logout.inc.php"><button type="button" class="btn btn-light" > LogOut </button></a>

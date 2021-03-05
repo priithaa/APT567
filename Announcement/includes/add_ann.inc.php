@@ -11,7 +11,7 @@ if(isset($_POST['submit_ann']))
 
 
 
-    createAnnouncement($conn, $_GET['Course_ID'], $title, $desc);
+    createAnnouncement($conn, $_SESSION['Course_ID'], $title, $desc);
 
   }
   else {

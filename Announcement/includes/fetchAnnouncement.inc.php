@@ -8,7 +8,7 @@
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "ss", $_GET['Course_ID'], $_SESSION["Class_ID"]);
+    mysqli_stmt_bind_param($stmt, "ss", $_SESSION['Course_ID'], $_SESSION["Class_ID"]);
     mysqli_stmt_execute($stmt);
 
     $resultData = mysqli_stmt_get_result($stmt);
