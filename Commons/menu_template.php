@@ -53,13 +53,17 @@ $row = fetchCourseInfo($conn,$_SESSION["Course_ID"]);
 								echo '<a href="../Announcement/student_template.php">';
               ?>
 
-              
+
                 <i class="bx bx-conversation"></i>
                 <span class="mx-2">Announcements</span>
               </a>
             </li>
             <li class="nav-link">
-              <a href="">
+              <?php if($_SESSION["type"]==="F")
+  						echo '<a href="../Announcement/teacher_template.php">';
+  						  else
+  								echo '<a href="../Announcement/student_template.php">';
+                ?>
                 <i class="bx bx-file"></i>
                 <span class="mx-2">Assignments</span>
               </a>
@@ -71,7 +75,11 @@ $row = fetchCourseInfo($conn,$_SESSION["Course_ID"]);
               </a>
             </li>
             <li class="nav-link">
-              <a href="">
+              <?php if($_SESSION["type"]==="F")
+  						echo '<a href="../Resources/teacher_template.php">';
+  						  else
+  								echo '<a href="../Resources/student_template.php">';
+                ?>
                 <i class='bx bxs-book-alt'></i>
                 <span class="mx-2">Resources</span>
               </a>
