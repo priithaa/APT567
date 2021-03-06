@@ -15,7 +15,7 @@
 </head>
 
 <body>
-	<div class="container-fluid row">
+	<div class="container-fluid row ">
 		<div class="col-6">
 			<div class="green">
 				<h1><a href="#">Portal
@@ -23,15 +23,23 @@
 				</h1>
 			</div>
 		</div>
-		<div class="col-6">
-			<a href="create_account.php">
-				<button type="button" class="btn btn-light"> Create Account
+		<div class="col-6 ">
+			<div class="in">
+				<button type="button" class="btn btn-light">
+					<a href="create_account.php">
+						Create Account
+					</a>
 				</button>
-			</a>
+			</div>
+
+
 		</div>
 	</div>
-	<div class="container-fluid blue">
-		<div class="col-6 white">
+
+
+
+	<div class="container-fluid blue row">
+		<div class="col-lg-6 col-md-12 ">
 			<div class="LoginForm">
 				<h3>Log In To Your Account</h3>
 				<form action="includes/login.inc.php" method="post">
@@ -78,14 +86,30 @@
 				</p>-->
 			</div>
 		</div>
-		<div class="col-6 side">
-			<p>TAKE YOUR CLASSROOM
-				EVERYWHERE....
-			</p>
-			<div><img src="login_img.png">
+		<div class="col-lg-6 col-md-6">
+			<div class="side">
+				<p>TAKE YOUR CLASSROOM
+					EVERYWHERE....
+				</p>
+				<div><img src="login_img.png">
+				</div>
 			</div>
+
 		</div>
 	</div>
+
+	<!-- <div class="footer">
+		<a href="#"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+		</a>
+		<a href="#"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>
+		</a>
+		<a href="#"><i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+		</a>
+		<a href="#"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+		</a>
+		<p>@Copyright 2021 APT567
+		</p>
+									</div> -->
 </body>
 
 </html>

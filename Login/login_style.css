@@ -8,18 +8,25 @@ body{
     background-size: cover;
     height: 900px;
 }
+
+.nav
+{
+   width: auto;
+   height: auto; 
+}
 .logo
 {
     margin-bottom: 5%;
 }
 .green
-{   position: absolute;
+{   position: relative;
     width: auto;
     height:auto;
     padding: 10px;
     left: 50px;
     top: 22px;
     background: #8EE4AF;
+    display: inline-block;
 }
 
 .green a{
@@ -31,54 +38,53 @@ body{
     color:  #05386B;
 }
 
+.in 
+{
+    padding-left: 50%;
+}
+
 .btn{
-    position: relative;
     color: #05386B;
-    top: 22px;
-    left: 300px;
-    width: 300px;
-    height: 64px;
+    position: relative;
+        top: 22px;
+
+    width: auto;
+    height: auto;
+    
+}
+.btn a{
+
     font-family: Didact Gothic;
+    padding: 3px;
     font-size: 30px;
     line-height: 39px;
     text-align: center;
+    text-decoration: none;
     color: #05386B;
     text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
-}
 
+
+
+}
 .green h1{
     text-align: center;
     color: #000000;
 }
   
 .blue{
-position: absolute;
-width: 100%;
+/* position: relative; */
+width: auto;
 height: auto;
-left: 0px;
-top: 157px;
+margin-top:4%;
 background: #05386B;
 }
-
-
-.white{
-    position: absolute;
-    width: 450px;
-    height: auto;
-    left: 50px;
-    top: 40px;
-    background: #ffffff;
-    box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 17px;
-
-}
-
 
 /*  LOGIN FORM  */
 
 .LoginForm
 {
-    position: relative;
+    /* position: relative; */
+    margin:3%;
     padding-top: 25px;
     width: 500px;
     height: auto;
@@ -179,25 +185,29 @@ background: #05386B;
 
 
 /* MAIN LOGIN PAGE */
-
+.side{
+    margin: 3%;
+}
 .side p{
-    position: relative;
-    left: 600px;
-    top: 40px;
+    display: block;
     color: white;
     font-size: 48px;
     line-height: 58px;
-    text-align: center;
+    text-align: left;
     font-family: Asul;
-    width: 600px;
-    height: 184px;
+    width: auto;
+    height: auto;
+    align-items: center;
+
 }
 
 .side img{
-    position: relative;
-    left: 620px;
-    width: 600px;
-    
+    /* position: relative;
+    left: 620px;*/
+    width: 90%; 
+    display: inline-block;
+        align-items: center;
+
 }
 
 
@@ -206,15 +216,14 @@ background: #05386B;
 .createblue{
     height: auto;
     width: 100%;
-    margin-top: 200px;
+    margin-top: 9px;
     background-color: #05386B;
+    padding:2% 50% 2% 30%;
     }
 
 .CreateAccountForm
-{   position: relative;
-    top: 35px;
+{   margin-top: 3%;
     border-radius: 17px;   
-    margin-left: 35%; 
     width: 527px;
     height: auto;
     background: #FFFFFF;
@@ -320,4 +329,30 @@ background: #05386B;
 
 }
 
+.footer
+{
+	background-color: #05386B;
+	height: auto;
+   width: 100%;
+   color: white;
+   text-align: center;
+   padding: 1%;
+   margin-top: 2%;
+}
+.footer p{
+	position: relative;
+	top: 25px;
+}
+
+.fa
+{
+	margin: 0 18px;
+	margin-bottom: 20px;
+}
+.footer a{
+	position: relative;
+	top:17px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
 
