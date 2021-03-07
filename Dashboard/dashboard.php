@@ -7,15 +7,14 @@ require_once 'includes/dbh.inc.php';
 require_once 'includes/functions.inc.php';
 
 
-if(isset($_SESSION["Course_ID"]))
-		unset($_SESSION["Course_ID"]);
+if (isset($_SESSION["Course_ID"]))
+	unset($_SESSION["Course_ID"]);
 
-if ($_SESSION["type"] === "F"){
+if ($_SESSION["type"] === "F") {
 	require_once "includes/faculty_sql.inc.php";
-	if(isset($_SESSION["Class_ID"]))
+	if (isset($_SESSION["Class_ID"]))
 		unset($_SESSION["Class_ID"]);
-}
-else if ($_SESSION["type"] === "S")
+} else if ($_SESSION["type"] === "S")
 	require_once "includes/student_sql.inc.php";
 
 // echo $_SESSION['Class_ID'];
@@ -38,26 +37,31 @@ else if ($_SESSION["type"] === "S")
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-2">
-				<?php $rows = fetchStudentPic($conn, $_SESSION["id"]);
-				if(!empty($rows['S_pp']))
-				echo '<img src="data:image/jpeg;base64,' . base64_encode($rows['S_pp']) . '" width="200	" height = "200" />';
+			<div class="col-lg-2 col-md-2">
+				<div class="pp">
+					<?php $rows = fetchStudentPic($conn, $_SESSION["id"]);
+				if (!empty($rows['S_pp']))
+					echo '<img src="data:image/jpeg;base64,' . base64_encode($rows['S_pp']) . '" width="200	" height = "200" />';
 				else {
 					echo
 					'<img src="ProfilePicture.png">';
-				}?>
+				} ?>
+				</div>
+				
 
 			</div>
-			<div class="col-md-10">
+			<div class="col-lg-10 col-md-10">
 				<nav class="navbar navbar-expand-md navbar-dark ">
-					<h3> <?php if($_SESSION["type"]=="F")
-						echo "Welcome ".fetchFacultyName($conn,$_SESSION["id"]);
-						else {
-								# code...
-								echo "Welcome " . fetchStudentName($conn, $_SESSION["id"]);
-						}?>
+					<span>
+						<h3 class="name"> <?php if ($_SESSION["type"] == "F")
+												echo "Welcome " . fetchFacultyName($conn, $_SESSION["id"]);
+											else {
+												# code...
+												echo "Welcome " . fetchStudentName($conn, $_SESSION["id"]);
+											} ?>
 
-					</h3>
+						</h3>
+					</span>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
@@ -87,11 +91,11 @@ else if ($_SESSION["type"] === "S")
 					<?php if ($_SESSION["type"] === "S") { ?>
 						<?php while ($rows = mysqli_fetch_assoc($resultData)) { // $rows;
 						?>
-							<div class="col-lg-4 col-md-6">
+							<div class="col-lg-4 col-md-6 col-sm-12">
 								<div class="blue-green">
 
-									<h3><a href="includes/redirect.inc.php?Course_ID=<?php echo $rows["Course_ID"];?>">
-										<?php echo fetchCourseName($conn, $rows["Course_ID"]); ?>
+									<h3><a href="includes/redirect.inc.php?Course_ID=<?php echo $rows["Course_ID"]; ?>">
+											<?php echo fetchCourseName($conn, $rows["Course_ID"]); ?>
 
 										</a>
 									</h3>
@@ -109,7 +113,7 @@ else if ($_SESSION["type"] === "S")
 							<div class="col-lg-4 col-md-6">
 								<div class="blue-green">
 
-									<h3><a href="includes/redirect.inc.php?Course_ID=<?php echo $rows["Course_ID"];?>&Class_ID=<?php echo $rows["Class_ID"];?>">
+									<h3><a href="includes/redirect.inc.php?Course_ID=<?php echo $rows["Course_ID"]; ?>&Class_ID=<?php echo $rows["Class_ID"]; ?>">
 											<?php echo fetchCourseName($conn, $rows["Course_ID"]); ?>
 
 										</a>

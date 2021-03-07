@@ -14,16 +14,19 @@
 .container-fluid a:hover{
   background-color: #93e9be;
 }
-
+.pp
+{
+	margin: 0 5%;
+}
 .container-fluid img{
   border-radius: 50%;
   margin: 5%;
   display: inline-block;
 }
-.container-fluid h3{
+.name{
   color: #FFFFFF;
-  display: inline;
-
+  display: inline-block;
+	width: auto;
 }
 
 .navbar
@@ -104,8 +107,8 @@ color:  #05386B;
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 10px;
 	text-align: left;
-	padding-top: 5px;
-	padding-left: 5px;
+	/* padding-top: 5px; */
+	padding: 5px;
 	margin-left: 2px;
 	margin-bottom: 20px;
 	color: #ffff;
