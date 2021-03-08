@@ -9,7 +9,7 @@ require_once '../Commons/includes/functions.inc.php';
 $row = fetchCourseInfo($conn,$_SESSION["Course_ID"]);
 
 ?>
-
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 

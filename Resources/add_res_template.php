@@ -22,13 +22,33 @@
                 ?>
               </div>
 
-            <form id="ann_add_form" action='includes/add_ann.inc.php' method="post">
+            <form id="ann_add_form" action='includes/add_res.inc.php' method="post">
                 <div class="controls">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="ann_add-title">Week*</label>
-                        <input id="form_title" type="text" name="week" class="form-control" placeholder="Please enter the tweek number" required="required" data-error="Week number is required.">
+                        <br>
+                        <select id="" name="week"  class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+
+                        </select>
+                      
                         <div class="help-block with-errors"></div>
                       </div>
                     </div>

@@ -3,12 +3,12 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   body {
     min-height: 100vh;
     background-color: #fff;
   }
-  
+
   .side-navbar {
     width: 250px;
     height: 100%;
@@ -28,7 +28,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-start;  
+    justify-content: flex-start;
     padding-top: .5rem;
     padding-bottom: .5rem;
   } */
@@ -39,38 +39,38 @@
     /*top: 22px; */
     /* left: 350px;
     width: 300px; */
-    
+
     height: 34px;
     text-align: center;
     color: #05386B;
     text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
 }
-  
+
   .nav-link:active,
   .nav-link:focus,
   .nav-link:hover {
     background-color: #ffffff26;
   }
-  
+
   .my-container {
     transition: 0.4s;
   }
-  
+
   .active-nav {
     margin-left: 0;
   }
-  
+
   /* for main section */
   .active-cont {
     margin-left: 250px;
   }
-  
+
   #menu-btn {
     background-color: #35D5A6;
     color: #fff;
     margin-left: -30px;
   }
-  
+
   .my-container input {
     border-radius: 2rem;
     padding: 2px 20px;
@@ -79,14 +79,14 @@
   /* .p-4{
     padding-bottom: 0.5rem;
   } */
-  
+
   .whitebox{
     height: auto;
 	background: #FFFFFF;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     margin-bottom: 20px;
-    
+
   }
 
   .contentbox{
@@ -161,3 +161,45 @@
   .update{
     color: #00FF00;
   }
+
+  /*Resources*/
+
+.faqs-container{
+    overflow: hidden;
+}
+.faq-singular {
+    position: relative;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 0 30px 0 20px;
+}
+.faq-singular:hover,
+.faq-singular.active{
+    background: #FFFFFF;
+    background-image: linear-gradient(90deg,  #335548 0%,  #335548 8px, transparent 8px, transparent 100%);
+}
+.faq-singular .faq-question {
+    position: relative;
+    cursor: pointer;
+    margin: 0;
+    padding: 25px 25px 25px 0px;
+    font-weight: 700;
+    font-size: 24px;
+}
+.faq-singular .faq-question:before {
+    position: absolute;
+    content: "+";
+    color:  #808080;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    font-weight: 700;
+    transition: all .5s;
+}
+.faq-singular.active .faq-question:before {
+    transform: translateY(-50%) rotate(45deg) scale(1.3);
+}
+.faq-answer {
+    display: none;
+    padding-bottom: 20px;
+}
