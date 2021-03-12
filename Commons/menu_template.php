@@ -60,9 +60,9 @@ $row = fetchCourseInfo($conn,$_SESSION["Course_ID"]);
             </li>
             <li class="nav-link">
               <?php if($_SESSION["type"]==="F")
-  						echo '<a href="../Announcement/teacher_template.php">';
+  						echo '<a href="../Assignments/teacher_template.php">';
   						  else
-  								echo '<a href="../Announcement/student_template.php">';
+  								echo '<a href="../Assignments/student_template.php">';
                 ?>
                 <i class="bx bx-file"></i>
                 <span class="mx-2">Assignments</span>
