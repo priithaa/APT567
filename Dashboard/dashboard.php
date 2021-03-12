@@ -40,12 +40,8 @@ if ($_SESSION["type"] === "F") {
 			<div class="col-lg-2 col-md-2">
 				<div class="pp">
 					<?php $rows = fetchStudentPic($conn, $_SESSION["id"]);
-				if (!empty($rows['S_pp']))
-					echo '<img src="data:image/jpeg;base64,' . base64_encode($rows['S_pp']) . '" width="200	" height = "200" />';
-				else {
-					echo
-					'<img src="ProfilePicture.png">';
-				} ?>
+					echo '<img src="PP_image/'. htmlentities($rows).'" width="160" height = "160" />';
+					?>
 				</div>
 				
 

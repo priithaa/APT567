@@ -87,24 +87,49 @@ function fetchClassInfo($conn, $Class_ID)
 
 function fetchStudentPic($conn,$sid)
 {
-    $sql = "SELECT S_pp_type , S_pp FROM student_info WHERE S_ID= ? ;" ;
+    if($_SESSION['type']=="S")
+    {
+        $sql = "SELECT S_pp FROM student_info WHERE S_ID= ? ;";
 
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../dashboard.php?error=stmtfaileduid");
-        exit();
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("location: ../dashboard.php?error=stmtfaileduid");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($stmt, "s", $sid);
+        mysqli_stmt_execute($stmt);
+
+        $resultData = mysqli_stmt_get_result($stmt);
+        $rows = mysqli_fetch_assoc($resultData);
+        // header("Content-type: " . $rows["imageType"]);
+        // echo $rows["imageData"];
+        mysqli_stmt_close($stmt);
+        // $result = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Retrieving Image BLOB<br/>" . mysqli_error($conn));
+        return $rows["S_pp"];
     }
+    else {
+        # code...
+        $sql = "SELECT F_pp FROM faculty_info WHERE F_ID= ? ;";
 
-    mysqli_stmt_bind_param($stmt, "s", $sid);
-    mysqli_stmt_execute($stmt);
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("location: ../dashboard.php?error=stmtfaileduid");
+            exit();
+        }
 
-    $resultData = mysqli_stmt_get_result($stmt);
-    $rows = mysqli_fetch_assoc($resultData);
-    // header("Content-type: " . $rows["imageType"]);
-    // echo $rows["imageData"];
-    mysqli_stmt_close($stmt);
-    // $result = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Retrieving Image BLOB<br/>" . mysqli_error($conn));
-    return $rows;
+        mysqli_stmt_bind_param($stmt, "s", $sid);
+        mysqli_stmt_execute($stmt);
+
+        $resultData = mysqli_stmt_get_result($stmt);
+        $rows = mysqli_fetch_assoc($resultData);
+        // header("Content-type: " . $rows["imageType"]);
+        // echo $rows["imageData"];
+        mysqli_stmt_close($stmt);
+        // $result = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Retrieving Image BLOB<br/>" . mysqli_error($conn));
+        return $rows["F_pp"];
+    }
+    
 }
 
 function fetchStudentInfo($conn, $sid)
