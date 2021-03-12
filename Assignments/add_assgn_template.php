@@ -6,7 +6,7 @@
           <div >
 
             <div class ="ann_text_section">
-                <h4>Add an Announcement</h4>
+                <h4>Add an Assignment</h4>
                 <p>A form is a document with spaces in which to write or select, for a series
                   of documents with similar contents. The documents usually have the printed
                   parts in common, except, possibly, for a serial number. Forms, when completed,
