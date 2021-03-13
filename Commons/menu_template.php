@@ -41,7 +41,7 @@ $row = fetchCourseInfo($conn,$_SESSION["Course_ID"]);
               </a>
             </li>
             <li class="nav-link">
-              <a href="">
+              <a href= '../Syllabus/Syllabus_template.php' >
                 <i class="bx bx-book-content"></i>
                 <span class="mx-2">Syllabus</span>
               </a>
