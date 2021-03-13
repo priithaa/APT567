@@ -17,13 +17,13 @@ if ($_SESSION["type"] === "F") {
 if (count($_FILES) > 0) {
 
   $pimage = $_FILES["userImage"]["name"];
-  move_uploaded_file($_FILES["userImage"]["tmp_name"], "PP_image/" . $_FILES["userImage"]["name"]);
+  move_uploaded_file($_FILES["userImage"]["tmp_name"], "../../PP_image/" . $_FILES["userImage"]["name"]);
 
-  if($_SESSION["type"]=="S")
-  $sql = "UPDATE student_info set S_pp = ? where S_ID = ?";
+  if ($_SESSION["type"] == "S")
+    $sql = "UPDATE student_info set S_pp = ? where S_ID = ?";
   else {
     # code...
-  $sql = "UPDATE faculty_info set F_pp = ? where F_ID = ?";
+    $sql = "UPDATE faculty_info set F_pp = ? where F_ID = ?";
   }
   if (!mysqli_stmt_prepare($stmt, $sql)) {
     header("location: ../dashboard.php?error=stmtfaileduid");
@@ -34,32 +34,19 @@ if (count($_FILES) > 0) {
   mysqli_stmt_bind_param($stmt, "ss", $pimage, $_SESSION['id']);
   // echo $_SESSION['Class_ID'];
   $result = mysqli_stmt_execute($stmt);
+  // echo $result;
+  // if ($result!==false)
+  // {
+  //   echo "yo";
+  //   $set = "imageSet";
+  // }
 
-  if (isset($result))
-    $_GET["update"] = "imageSet";
+
+
+
+  // require_once 'essentials/header.php';
 }
-//if (count($_FILES) > 0)
-//   {
-//      if (is_uploaded_file($_FILES['userImage']['tmp_name'])) {
 
-
-//      $imgData = addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
-//      $imageProperties = getimageSize($_FILES['userImage']['tmp_name']);
-
-//      if ($_SESSION["type"] === "S")
-//    {$sql = "UPDATE student_info SET S_pp_type = '$imageProperties['mime']', S_pp = '$imgData' where S_ID = '$_SESSION['id']''";
-
-//    }
-//  if ($_SESSION["type"] === "F")
-//$sql = 'UPDATE faculty_info SET F_pp_type = $imageProperties["mime"], F_pp  = $imgData where F_ID = $_SESSION["id"]';
-
-
-//  $current_id = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
-//if (isset($current_id)) {
-//$_GET["update"]="imageSet";
-//}
-//}
-//}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -78,36 +65,36 @@ if (count($_FILES) > 0) {
       <div class="col-md-2">
         <div class="pp">
           <?php $rows = fetchStudentPic($conn, $_SESSION["id"]);
-          echo '<img src="PP_image/' . htmlentities($rows) . '" width="160" height = "160" />';
+          echo '<img src="../../PP_image/' . htmlentities($rows) . '" width="160" height = "160" />';
           ?>
         </div>
 
       </div>
       <div class="col-md-10">
         <nav class="navbar navbar-expand-md navbar-dark ">
-          <h3> Welcome <br>
-            <?php if ($_SESSION["type"] == "F")
+          <h3 style=" color: white;"> Welcome <br>
+            <?php if ($_SESSION["type"] === "F")
               echo fetchFacultyName($conn, $_SESSION["id"]);
             else {
               echo fetchStudentName($conn, $_SESSION["id"]);
             } ?>
           </h3>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href=""> To-do List </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="dashboard.php"> Dashboard </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../Login/includes/logout.inc.php"> Logout</a>
-              </li>
-            </ul>
-          </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href=""> To-do List </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="dashboard.php"> Dashboard </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../Login/includes/logout.inc.php"> Logout</a>
+                </li>
+              </ul>
+            </div>
         </nav>
       </div>
 
@@ -158,8 +145,9 @@ if (count($_FILES) > 0) {
                               <input type="submit" value="Submit" class="btnSubmit" />
                             </form>
                             <?php if (isset($_GET["update"])) {
-                              if ($_GET["update"] == "imageSet")
-                                echo "<p class='update'>Photo has been updated successfully</p>";
+                              if ($set === "imageSet")
+                                echo "<p class='error'>Photo has been updated successfully</p>";
+                              // unset($_GET["update"]);
                             } ?>
                           </div>
 
@@ -202,10 +190,10 @@ if (count($_FILES) > 0) {
                                                                                                                 else {
                                                                                                                   echo  $row['S_name'];
                                                                                                                 } ?>" value="<?php if ($_SESSION["type"] == "F")
-                                              echo $row['F_name'];
-                                            else {
-                                              echo  $row['S_name'];
-                                            } ?>">
+                                                                                                                                echo $row['F_name'];
+                                                                                                                              else {
+                                                                                                                                echo  $row['S_name'];
+                                                                                                                              } ?>">
                                   </div>
                                 </div>
                                 <div class="col">
@@ -216,10 +204,10 @@ if (count($_FILES) > 0) {
                                                                                                                     else {
                                                                                                                       echo  $row['S_ID'];
                                                                                                                     } ?>" value="<?php if ($_SESSION["type"] == "F")
-                                              echo $row['F_ID'];
-                                            else {
-                                              echo  $row['S_ID'];
-                                            } ?>">
+                                                                                                                                    echo $row['F_ID'];
+                                                                                                                                  else {
+                                                                                                                                    echo  $row['S_ID'];
+                                                                                                                                  } ?>">
                                   </div>
                                 </div>
                               </div>
@@ -232,10 +220,10 @@ if (count($_FILES) > 0) {
                                                                                                                   else {
                                                                                                                     echo  $row['S_email'];
                                                                                                                   } ?>" value="<?php if ($_SESSION["type"] == "F")
-                                                echo $row['F_email'];
-                                              else {
-                                                echo  $row['S_email'];
-                                              } ?>">
+                                                                                                                                  echo $row['F_email'];
+                                                                                                                                else {
+                                                                                                                                  echo  $row['S_email'];
+                                                                                                                                } ?>">
                                   </div>
                                 </div>
                               </div>

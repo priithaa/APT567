@@ -19,133 +19,76 @@ if ($_SESSION["type"] === "F") {
 
 // echo $_SESSION['Class_ID'];
 
-
+require_once 'essentials/header.php';
 ?>
-<!DOCTYPE html>
-<html>
 
-<head>
-	<title>
-		Dashboard
-	</title>
-	<script src="https://kit.fontawesome.com/ab606e87e4.js" crossorigin="anonymous"></script>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-	<link rel="stylesheet" href="CSS/style.css">
-</head>
 
-<body>
-
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-2 col-md-2">
-				<div class="pp">
-					<?php $rows = fetchStudentPic($conn, $_SESSION["id"]);
-					echo '<img src="PP_image/'. htmlentities($rows).'" width="160" height = "160" />';
+<div class="row">
+	<div class="col-sm-9">
+		<div class="classes p-8 m-20">
+			<div class="row">
+				<?php if ($_SESSION["type"] === "S") { ?>
+					<?php while ($rows = mysqli_fetch_assoc($resultData)) { // $rows;
 					?>
-				</div>
-				
+						<div class="col-lg-4 col-md-6 col-sm-12">
+							<div class="blue-green">
 
-			</div>
-			<div class="col-lg-10 col-md-10">
-				<nav class="navbar navbar-expand-md navbar-dark ">
-					<span>
-						<h3 class="name"> <?php if ($_SESSION["type"] == "F")
-												echo "Welcome " . fetchFacultyName($conn, $_SESSION["id"]);
-											else {
-												# code...
-												echo "Welcome " . fetchStudentName($conn, $_SESSION["id"]);
-											} ?>
+								<h3><a href="includes/redirect.inc.php?Course_ID=<?php echo $rows["Course_ID"]; ?>">
+										<?php echo fetchCourseName($conn, $rows["Course_ID"]); ?>
 
-						</h3>
-					</span>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item">
-								<a class="nav-link" href=""> To-do List </a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link " href="EditProfile.php"> Edit Profile </a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="../Login/includes/logout.inc.php"> Logout</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-
-		</div>
-
-	</div>
-	<div class="row">
-		<div class="col-sm-9">
-			<div class="classes p-8 m-20">
-				<div class="row">
-					<?php if ($_SESSION["type"] === "S") { ?>
-						<?php while ($rows = mysqli_fetch_assoc($resultData)) { // $rows;
-						?>
-							<div class="col-lg-4 col-md-6 col-sm-12">
-								<div class="blue-green">
-
-									<h3><a href="includes/redirect.inc.php?Course_ID=<?php echo $rows["Course_ID"]; ?>">
-											<?php echo fetchCourseName($conn, $rows["Course_ID"]); ?>
-
-										</a>
-									</h3>
-									<p><?php echo fetchFacultyName($conn, $rows["F_ID"]); ?>
-									</p>
-								</div>
+									</a>
+								</h3>
+								<p><?php echo fetchFacultyName($conn, $rows["F_ID"]); ?>
+								</p>
 							</div>
-						<?php }  ?>
-						<?php mysqli_stmt_close($stmt); ?>
-					<?php } ?>
+						</div>
+					<?php }  ?>
+					<?php mysqli_stmt_close($stmt); ?>
+				<?php } ?>
 
-					<?php if ($_SESSION["type"] === "F") { ?>
-						<?php while ($rows = mysqli_fetch_assoc($resultData)) { // $rows;
-						?>
-							<div class="col-lg-4 col-md-6">
-								<div class="blue-green">
+				<?php if ($_SESSION["type"] === "F") { ?>
+					<?php while ($rows = mysqli_fetch_assoc($resultData)) { // $rows;
+					?>
+						<div class="col-lg-4 col-md-6">
+							<div class="blue-green">
 
-									<h3><a href="includes/redirect.inc.php?Course_ID=<?php echo $rows["Course_ID"]; ?>&Class_ID=<?php echo $rows["Class_ID"]; ?>">
-											<?php echo fetchCourseName($conn, $rows["Course_ID"]); ?>
+								<h3><a href="includes/redirect.inc.php?Course_ID=<?php echo $rows["Course_ID"]; ?>&Class_ID=<?php echo $rows["Class_ID"]; ?>">
+										<?php echo fetchCourseName($conn, $rows["Course_ID"]); ?>
 
-										</a>
-									</h3>
-									<?php $rows = fetchClassInfo($conn, $rows["Class_ID"]); ?>
-									<p><?php echo "B.Tech " . $rows["Branch"] . ", " . "Sem: " . $rows["Semester"] . ", Section: " . $rows["Section"]; ?> </p>
-								</div>
+									</a>
+								</h3>
+								<?php $rows = fetchClassInfo($conn, $rows["Class_ID"]); ?>
+								<p><?php echo "B.Tech " . $rows["Branch"] . ", " . "Sem: " . $rows["Semester"] . ", Section: " . $rows["Section"]; ?> </p>
 							</div>
-						<?php }  ?>
-						<?php mysqli_stmt_close($stmt); ?>
-					<?php } ?>
-				</div>
+						</div>
+					<?php }  ?>
+					<?php mysqli_stmt_close($stmt); ?>
+				<?php } ?>
 			</div>
-		</div>
-		<div class="col-sm-3" style="background-color: #ffff;">
-			<a class="twitter-timeline" data-width="400" data-height="750" data-theme="light" href="https://twitter.com/Banasthali_Vid?ref_src=twsrc%5Etfw"> Tweets by Banasthali_Vid
-			</a>
-
-			<script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
-			</script>
-
 		</div>
 	</div>
+	<div class="col-sm-3" style="background-color: #ffff;">
+		<a class="twitter-timeline" data-width="400" data-height="750" data-theme="light" href="https://twitter.com/Banasthali_Vid?ref_src=twsrc%5Etfw"> Tweets by Banasthali_Vid
+		</a>
 
-	<footer class="footer">
-		<a href="#"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
-		</a>
-		<a href="#"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>
-		</a>
-		<a href="#"><i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-		</a>
-		<a href="#"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
-		</a>
-		<p>@Copyright 2021 APT567
-		</p>
-	</footer>
+		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+		</script>
+
+	</div>
+</div>
+
+<footer class="footer">
+	<a href="#"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+	</a>
+	<a href="#"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>
+	</a>
+	<a href="#"><i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+	</a>
+	<a href="#"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+	</a>
+	<p>@Copyright 2021 APT567
+	</p>
+</footer>
 </body>
 
 </html>
