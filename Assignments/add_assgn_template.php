@@ -1,4 +1,6 @@
-<?php require_once '../Commons/menu_template.php' ?>
+<?php require_once '../Commons/menu_template.php';
+      require_once 'includes/functions.inc.php';
+?>
 
 <div class="col-sm-9">
         <div class="container">
@@ -24,11 +26,36 @@
 
             <form id="ann_add_form" action='includes/add_assgn.inc.php' method="post">
                 <div class="controls">
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="ann_add-title">Question Paper Type*</label>
+                        <br>
+                        <select id="" name="question_paper_type"  class="form-control">
+                          <?php qpType($conn); ?>
+                        </select>
+
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="ann_add-title">Title*</label>
                         <input id="form_title" type="text" name="title" class="form-control" placeholder="Please enter the title of the assignment (MAX: 500 characters)" required="required" data-error="Title is required.">
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="ann_add-title">Due Date*</label>
+                        <input id="date" type="date" name="due_date" min="<?php echo date("Y-m-d") ?>" class="form-control datepicker" placeholder="Please enter the title of the assignment (MAX: 500 characters)" required="required" data-error="Title is required.">
+                        <p id = "geek"></p>
                         <div class="help-block with-errors"></div>
                       </div>
                     </div>
@@ -61,5 +88,5 @@
           </div>
         </div>
       </div>
-
+      
 <?php require_once '../Commons/twitter_template.php' ?>
