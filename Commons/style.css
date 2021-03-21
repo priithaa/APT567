@@ -208,3 +208,18 @@
     display: none;
     padding-bottom: 20px;
 }
+
+/* Submission  */
+input[name=sub_question_paper_type] {
+			pointer-events: none;
+}
+
+input[name=sub_title] {
+			pointer-events: none;
+}
+
+input[name=sub_due_date] {
+			pointer-events: none;
+}
+
+

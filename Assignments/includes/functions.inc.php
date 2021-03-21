@@ -25,6 +25,7 @@ function qpType($conn)
 
 function createAssignment($conn, $course_id,$qpid,$due_date, $title, $desc)
 {
+  echo "hi";
     $sql = "INSERT INTO question_paper_info( Class_ID,Course_ID,QP_ID,QP_link,QP_due_date,QP_title) values(?,?,?,?,?,?);";
 
     $stmt = mysqli_stmt_init($conn);
@@ -108,7 +109,7 @@ function printAssignment($conn,$qpid)
   mysqli_stmt_close($stmt);
   while($row = mysqli_fetch_assoc($resultData))
   {
-
+    // echo $row["Ass_ID"];
     echo '<div itemprop="">
       <div class="whitebox">
           <div class ="contentbox">
@@ -135,6 +136,13 @@ function printAssignment($conn,$qpid)
         <button>Delete</button>
       </a>
     </div>';}
+    if ($_SESSION['type'] === 'S') {
+      echo '<div class="row Ann_delete">
+          <a href="includes/redirect_submit.inc.php?Ass_ID='.$row["Ass_ID"].'">
+        <button>Submit</button>
+      </a>
+    </div>';
+    }
       echo  '</div>
      </div>
    </div>';
@@ -165,5 +173,39 @@ function deleteAssignment($conn,$ass_id)
     // echo $_SESSION['Class_ID'];
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+
+}
+
+function getAssignmentDetails($conn, $ass_id)
+{
+  $sql = "Select * from question_paper_info where Ass_ID=?;";
+
+  $stmt = mysqli_stmt_init($conn);
+
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("location: ../submit_assgn_template.php?error=stmtfaileduid");
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt, "i", $ass_id);
+  mysqli_stmt_execute($stmt);
+  $resultData = mysqli_stmt_get_result($stmt);
+  mysqli_stmt_close($stmt);
+  $row = mysqli_fetch_assoc($resultData);
+  return $row;
+}
+
+function submitLinkAssignment($conn, $link, $title)
+{
+  $sql = "Insert into submit_info(S_ID, Ass_ID,Sub_link) values (?,?,?)";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("location: ../submit_assgn_template.php?error=stmtfaileduid");
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt, "sis", $_SESSION["id"], $_SESSION["Ass_ID"],$link);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+  $url = "../submit_assgn_template.php?title=" . $title;
+  header('location:' . $url);
 
 }
