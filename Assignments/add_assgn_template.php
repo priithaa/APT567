@@ -1,4 +1,6 @@
-<?php require_once '../Commons/menu_template.php' ?>
+<?php require_once '../Commons/menu_template.php';
+      require_once 'includes/functions.inc.php';
+?>
 
 <div class="col-sm-9">
         <div class="container">
@@ -6,7 +8,7 @@
           <div >
 
             <div class ="ann_text_section">
-                <h4>Add Resources</h4>
+                <h4>Add an Assignment</h4>
                 <p>A form is a document with spaces in which to write or select, for a series
                   of documents with similar contents. The documents usually have the printed
                   parts in common, except, possibly, for a serial number. Forms, when completed,
@@ -22,31 +24,16 @@
                 ?>
               </div>
 
-            <form id="ann_add_form" action='includes/add_res.inc.php' method="post">
+            <form id="ann_add_form" action='includes/add_assgn.inc.php' method="post">
                 <div class="controls">
+
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="ann_add-title">Week*</label>
+                        <label for="ann_add-title">Question Paper Type*</label>
                         <br>
-                        <select id="" name="week"  class="form-control">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                            <option value="13">13</option>
-                            <option value="14">14</option>
-                            <option value="15">15</option>
-                            <option value="16">16</option>
-
+                        <select id="" name="question_paper_type"  class="form-control">
+                          <?php qpType($conn); ?>
                         </select>
 
                         <div class="help-block with-errors"></div>
@@ -57,7 +44,18 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="ann_add-title">Title*</label>
-                        <input id="form_title" type="text" name="title" class="form-control" placeholder="Please enter the title of the resources (MAX: 500 characters)" required="required" data-error="Title is required.">
+                        <input id="form_title" type="text" name="title" class="form-control" placeholder="Please enter the title of the assignment (MAX: 500 characters)" required="required" data-error="Title is required.">
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="ann_add-title">Due Date*</label>
+                        <input id="date" type="date" name="due_date" min="<?php echo date("Y-m-d") ?>" class="form-control datepicker" placeholder="Please enter the title of the assignment (MAX: 500 characters)" required="required" data-error="Title is required.">
+                        <p id = "geek"></p>
                         <div class="help-block with-errors"></div>
                       </div>
                     </div>
@@ -67,13 +65,13 @@
                     <div>
                       <div class="form-group">
                         <label for="ann_add-desc">Description*</label>
-                        <textarea id="form_desc" name="desc" class="form-control" placeholder="Please enter the description of the resources  (MAX: 8000 characters)" rows="6" required="required" data-error="Please add a description."></textarea>
+                        <textarea id="form_desc" name="desc" class="form-control" placeholder="Please enter the description of the assignment  (MAX: 8000 characters)" rows="6" required="required" data-error="Please add a description."></textarea>
                         <div class="help-block with-errors"></div>
                       </div>
                     </div>
 
                     <div>
-                      <input type="submit" class="btn btn-success btn-send" name="submit_res" value="Submit">
+                      <input type="submit" class="btn btn-success btn-send" name="submit_assgn" value="Submit">
                     </div>
 
                   </div>
@@ -90,5 +88,5 @@
           </div>
         </div>
       </div>
-
+      
 <?php require_once '../Commons/twitter_template.php' ?>
