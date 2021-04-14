@@ -67,7 +67,8 @@ function fetchqpName($conn,$qpid)
 }
 function printAssignment($conn,$qpid)
 {
-  if($_SESSION["type"]==='S'){
+  if($_SESSION["type"]==='S')
+  {
   $sql = "SELECT Class_ID from student_info where S_ID= ?;";
 
   $stmt = mysqli_stmt_init($conn);
@@ -82,7 +83,7 @@ function printAssignment($conn,$qpid)
   $rows = mysqli_fetch_assoc($resultData);
   $classID= $rows['Class_ID'];
   mysqli_stmt_close($stmt);
-}
+  }
 
   $rows = fetchqpName($conn,$qpid);
   echo '<div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">';
@@ -135,13 +136,28 @@ function printAssignment($conn,$qpid)
           <a href="includes/redirect_delete.inc.php?Ass_ID='.$row["Ass_ID"].'">
         <button>Delete</button>
       </a>
-    </div>';}
-    if ($_SESSION['type'] === 'S') {
-      echo '<div class="row Ann_delete">
+    </div>';} //add function here which will check if the given sid and ass_id already exists in submit_info then disable submit button
+    if ($_SESSION['type'] === 'S')
+    {
+      $check = checkSubmission($conn,$row["Ass_ID"]);
+      if($check === null)
+      {
+        echo '<div class="row Ann_delete">
           <a href="includes/redirect_submit.inc.php?Ass_ID='.$row["Ass_ID"].'">
-        <button>Submit</button>
-      </a>
-    </div>';
+          <button>Submit</button>
+          </a>
+         </div>';
+      }
+      else
+      {
+        echo '<div class="row Ann_delete">
+            <span>Submitted on '.$check['Sub_Date'].'</span>
+           <button class="btn btn-secondary" disabled>Submit</button>
+          </a>
+         </div>';
+      }
+//class="btn btn-secondary btn-lg"
+
     }
       echo  '</div>
      </div>
@@ -205,7 +221,27 @@ function submitLinkAssignment($conn, $link, $title)
   mysqli_stmt_bind_param($stmt, "sis", $_SESSION["id"], $_SESSION["Ass_ID"],$link);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
-  $url = "../submit_assgn_template.php?title=" . $title;
+  $url = "../student_template.php?title=" . $title;
   header('location:' . $url);
 
+}
+
+function checkSubmission($conn,$ass_id)
+{
+  $sql = "Select * from submit_info where S_ID = ? and Ass_ID = ?";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("location: ../submit_assgn_template.php?error=stmtfaileduid");
+    exit();
+  }
+  mysqli_stmt_bind_param($stmt, "si", $_SESSION["id"], $ass_id);
+  mysqli_stmt_execute($stmt);
+  $resultData = mysqli_stmt_get_result($stmt);
+  mysqli_stmt_close($stmt);
+  if (isset($resultData))
+  { $row = mysqli_fetch_assoc($resultData);
+    return $row;
+
+  }
+  return false;
 }

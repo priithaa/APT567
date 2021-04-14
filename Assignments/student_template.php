@@ -1,7 +1,10 @@
 <?php require_once '../Commons/menu_template.php' ?>
 
 <?php require_once 'includes/fetchAssignment.inc.php';
-require_once 'includes/functions.inc.php'; ?>
+require_once 'includes/functions.inc.php';
+if (isset($_SESSION["Ass_ID"]))
+	unset($_SESSION["Ass_ID"]);
+?>
 
     <div class="col-sm-9">
             <div class="p-4 row">
