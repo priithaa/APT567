@@ -133,9 +133,12 @@ function printAssignment($conn,$qpid)
         .'</div>';
         if($_SESSION['type']==='F')
         {echo '<div class="row Ann_delete">
+          <div>
+          <button class="Submission">View Submission</button>
           <a href="includes/redirect_delete.inc.php?Ass_ID='.$row["Ass_ID"].'">
-        <button>Delete</button>
-      </a>
+            <button>Delete</button>
+          </a>
+          </div>
     </div>';} //add function here which will check if the given sid and ass_id already exists in submit_info then disable submit button
     if ($_SESSION['type'] === 'S')
     {
@@ -143,17 +146,20 @@ function printAssignment($conn,$qpid)
       if($check === null)
       {
         echo '<div class="row Ann_delete">
+          <div>
+          <button class="Submission">View Submission</button>
           <a href="includes/redirect_submit.inc.php?Ass_ID='.$row["Ass_ID"].'">
-          <button>Submit</button>
+            <button>Submit</button>
           </a>
+          </div>
          </div>';
       }
       else
       {
         echo '<div class="row Ann_delete">
             <span>Submitted on '.$check['Sub_Date'].'</span>
+            <button class="Submission">View Submission</button>
            <button class="btn btn-secondary" disabled>Submit</button>
-          </a>
          </div>';
       }
 //class="btn btn-secondary btn-lg"
