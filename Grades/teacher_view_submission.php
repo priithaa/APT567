@@ -17,6 +17,7 @@
                 </p>
             </div>
             <div>
+              <form action="includes/SubmitGrades.inc.php" method="post">
               <?php if(mysqli_num_rows($resultData) > 0)
                       {echo "<table class='table'>
                             <thead>";
@@ -36,10 +37,10 @@
 
                 echo "<tr>";
                   echo "<th scope='row'>".$count."</th>";
-                  echo "<td>" . $row['S_ID'] . "</td>";
+                  echo "<td>".$row["S_ID"]."<input type='hidden' name='sh_id[]' value=".$row["S_ID"]."></td>";
                   echo "<td>" . $row['Sub_Date'] . "</td>";
                   echo "<td>" . $row['Sub_link'] . "</td>";
-                  echo "<td>" . $row['Sub_marks'] . "</td>";
+                  echo "<td><input type='text' name='sh_grade[]' value=".$row["Sub_marks"]."></td>";
                 echo "</tr>";
                     $count = $count +1;
 
@@ -49,6 +50,9 @@
                 echo "Nobody has submitted the assignment yet.";
               }
               ?>
+
+              <button type="submit" name="submit">Submit</button>
+              </form>
             </div>
 
 

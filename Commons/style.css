@@ -221,3 +221,7 @@ input[name=sub_title] {
 input[name=sub_due_date] {
 			pointer-events: none;
 }
+
+/*input[name=sh_id] {
+			pointer-events: none;
+}*/
