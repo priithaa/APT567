@@ -85,13 +85,14 @@ if (count($_FILES) > 0) {
       </div>
       <div class="col-md-10">
         <nav class="navbar navbar-expand-md navbar-dark ">
-          <h3> Welcome <br>
+          <h3 style="color:white;"> Welcome <br>
             <?php if ($_SESSION["type"] == "F")
               echo fetchFacultyName($conn, $_SESSION["id"]);
             else {
               echo fetchStudentName($conn, $_SESSION["id"]);
             } ?>
           </h3>
+        
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
