@@ -42,14 +42,18 @@
                     $count = $count +1;
 
               }
-              echo "</table>";}
+              echo "</table>";
+              echo "<button type='submit' name='submit'>Submit</button>";
+
+              
+            
+            }
               else{
                 echo "Nobody has submitted the assignment yet.";
               }
               ?>
-
-              <button type="submit" name="submit">Submit</button>
-              </form>
+          </form>
+              
             </div>
 
 

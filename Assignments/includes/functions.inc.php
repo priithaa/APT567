@@ -134,7 +134,9 @@ function printAssignment($conn,$qpid)
         if($_SESSION['type']==='F')
         {echo '<div class="row Ann_delete">
           <div>
+          <a href="../Grades/includes/redirect_view_submission.inc.php?Ass_ID='.$row["Ass_ID"].'">
           <button class="Submission">View Submission</button>
+          </a>
           <a href="includes/redirect_delete.inc.php?Ass_ID='.$row["Ass_ID"].'">
             <button>Delete</button>
           </a>

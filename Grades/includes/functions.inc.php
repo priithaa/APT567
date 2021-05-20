@@ -146,7 +146,7 @@ function printAssignment($conn,$qpid)
       {
         echo '<div class="row Ann_delete">
           <div>
-          <button class="Submission">View Submission</button>
+          
           </div>
          </div>';
       }
@@ -155,7 +155,9 @@ function printAssignment($conn,$qpid)
         echo '<div class="row Ann_delete">
             <span>Submitted on '.$check['Sub_Date'].'</span>
 
-            <button class="Submission">View Submission</button>
+            <a href="includes/redirect_view_submission.inc.php?Ass_ID='.$row["Ass_ID"].'">
+          <button class="Submission">View Submission</button>
+          </a>
          </div>';
       }
 //class="btn btn-secondary btn-lg"
