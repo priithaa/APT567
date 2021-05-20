@@ -72,13 +72,37 @@ if (count($_FILES) > 0) {
       </div>
       <div class="col-md-10">
         <nav class="navbar navbar-expand-md navbar-dark ">
+ Grades
+          <h3 style="color:white;"> Welcome <br>
+            <?php if ($_SESSION["type"] == "F")
+
           <h3 style=" color: white;"> Welcome <br>
             <?php if ($_SESSION["type"] === "F")
+ main
               echo fetchFacultyName($conn, $_SESSION["id"]);
             else {
               echo fetchStudentName($conn, $_SESSION["id"]);
             } ?>
           </h3>
+ Grades
+        
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href=""> To-do List </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="dashboard.php"> Dashboard </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../Login/includes/logout.inc.php"> Logout</a>
+              </li>
+            </ul>
+          </div>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -95,6 +119,7 @@ if (count($_FILES) > 0) {
                 </li>
               </ul>
             </div>
+ main
         </nav>
       </div>
 

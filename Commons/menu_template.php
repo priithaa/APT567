@@ -74,7 +74,11 @@ $row = fetchCourseInfo($conn,$_SESSION["Course_ID"]);
               </a>
             </li>
             <li class="nav-link">
-              <a href="">
+              <?php if($_SESSION["type"]==="F")
+              echo '<a href="../Grades/teacher_template.php">';
+                else
+                  echo '<a href="../Grades/student_template.php">';
+                ?>
                 <i class="bx bx-medal"></i>
                 <span class="mx-2">Grades</span>
               </a>
