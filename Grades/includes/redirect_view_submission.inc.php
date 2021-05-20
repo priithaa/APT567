@@ -4,7 +4,10 @@
     session_start();
     $_SESSION['Ass_ID'] = $_GET['Ass_ID'];
 
-    header('location: ../teacher_view_submission.php');
+    if($_SESSION['type']==='F')
+        header('location: ../teacher_view_submission.php');
+    else
+        header('location: ../student_view_submission.php');
 
 
 

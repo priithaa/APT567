@@ -18,7 +18,7 @@
 	<div class="container-fluid row ">
 		<div class="col-6">
 			<div class="green">
-				<h1><a href="#">Portal
+				<h1><a href="#">BV Classroom
 					</a>
 				</h1>
 			</div>

@@ -9,10 +9,7 @@
 
             <div class ="ann_text_section">
                 <h4>Add an Assignment</h4>
-                <p>A form is a document with spaces in which to write or select, for a series
-                  of documents with similar contents. The documents usually have the printed
-                  parts in common, except, possibly, for a serial number. Forms, when completed,
-                  may be a statement, a request, an order, etc.; a check may be a form.
+                <p>Please make sure that you submit the assignment on time otherwise your marks will get compromised!
                 </p>
             </div>
 

@@ -9,14 +9,12 @@
           <div >
 
             <div class ="ann_text_section">
-                <h4>Add an Assignment</h4>
-                <p>A form is a document with spaces in which to write or select, for a series
-                  of documents with similar contents. The documents usually have the printed
-                  parts in common, except, possibly, for a serial number. Forms, when completed,
-                  may be a statement, a request, an order, etc.; a check may be a form.
+                <h4>Submissions</h4>
+                <p>Grades in a tabular format.
                 </p>
             </div>
             <div>
+              <form action="includes/SubmitGrades.inc.php" method="post">
               <?php if(mysqli_num_rows($resultData) > 0)
                       {echo "<table class='table'>
                             <thead>";
@@ -36,19 +34,26 @@
 
                 echo "<tr>";
                   echo "<th scope='row'>".$count."</th>";
-                  echo "<td>" . $row['S_ID'] . "</td>";
+                  echo "<td>".$row["S_ID"]."<input type='hidden' name='sh_id[]' value=".$row["S_ID"]."></td>";
                   echo "<td>" . $row['Sub_Date'] . "</td>";
                   echo "<td>" . $row['Sub_link'] . "</td>";
-                  echo "<td>" . $row['Sub_marks'] . "</td>";
+                  echo "<td><input type='text' name='sh_grade[]' value=".$row["Sub_marks"]."></td>";
                 echo "</tr>";
                     $count = $count +1;
 
               }
-              echo "</table>";}
+              echo "</table>";
+              echo "<button type='submit' name='submit'>Submit</button>";
+
+              
+            
+            }
               else{
                 echo "Nobody has submitted the assignment yet.";
               }
               ?>
+          </form>
+              
             </div>
 
 

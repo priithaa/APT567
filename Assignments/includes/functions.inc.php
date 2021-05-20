@@ -134,7 +134,9 @@ function printAssignment($conn,$qpid)
         if($_SESSION['type']==='F')
         {echo '<div class="row Ann_delete">
           <div>
+          <a href="../Grades/includes/redirect_view_submission.inc.php?Ass_ID='.$row["Ass_ID"].'">
           <button class="Submission">View Submission</button>
+          </a>
           <a href="includes/redirect_delete.inc.php?Ass_ID='.$row["Ass_ID"].'">
             <button>Delete</button>
           </a>
@@ -147,7 +149,9 @@ function printAssignment($conn,$qpid)
       {
         echo '<div class="row Ann_delete">
           <div>
+          <a href="../Grades/includes/redirect_view_submission.inc.php?Ass_ID='.$row["Ass_ID"].'">
           <button class="Submission">View Submission</button>
+          </a>
           <a href="includes/redirect_submit.inc.php?Ass_ID='.$row["Ass_ID"].'">
             <button>Submit</button>
           </a>
@@ -158,8 +162,12 @@ function printAssignment($conn,$qpid)
       {
         echo '<div class="row Ann_delete">
             <span>Submitted on '.$check['Sub_Date'].'</span>
-            <button class="Submission">View Submission</button>
-           <button class="btn btn-secondary" disabled>Submit</button>
+            <div>
+          <a href="../Grades/includes/redirect_view_submission.inc.php?Ass_ID='.$row["Ass_ID"].'">
+          <button class="Submission">View Submission</button>
+          </a>
+             <button class="btn btn-secondary" disabled>Submit</button>
+             </div>
          </div>';
       }
 //class="btn btn-secondary btn-lg"
