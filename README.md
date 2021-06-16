@@ -10,24 +10,24 @@ Welcome to **BV CLASSROOM** project.
 Here are some screenshots of my work -
 
 <p>
-  <img src='screenshots/login.png' width = '30%'>
-  <img src= 'screenshots/dashboard.png' width = '30%' >
-  <img src ='screenshots/edit_profile.png' width = '30%'>
+  <img src='screenshots/login.png' width = '40%'>
+  <img src= 'screenshots/dashboard.png' width = '40%' >
+  <img src ='screenshots/edit_profile.png' width = '40%'>
 </p>
 
 <p>
-  <img src='screenshots/overview.png' width = '30%'>
-  <img src= 'screenshots/syllabus.png' width = '30%'>
-  <img src='screenshots/announcement.png' width = '30%'>
+  <img src='screenshots/overview.png' width = '40%'>
+  <img src= 'screenshots/syllabus.png' width = '40%'>
+  <img src='screenshots/announcement.png' width = '40%'>
 </p>
 
 <p>
-  <img src='screenshots/assignment.png' width = '30%'>
-  <img src= 'screenshots/grades.png' width = '30%' >
-  <img src ='screenshots/resources.png' width = '30%'>
+  <img src='screenshots/assignment.png' width = '40%'>
+  <img src= 'screenshots/grades.png' width = '40%' >
+  <img src ='screenshots/resources.png' width = '40%'>
 </p>
 
 
 
-### If you like our work please give us a :star:, :blush:
+### If you like our work please give us a :star: :blush:
 
