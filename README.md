@@ -3,11 +3,11 @@
 </div>
 
 
-Welcome to **BV CLASSROOM** project. 
+##Welcome to **BV CLASSROOM** project. 
 
 ## Screenshots & Gif
 
-Here are some screenshots of my work -
+These are the screenshots of our work -
 
 <!-- <p> -->
   <img src='screenshots/login.png' width = '70%'>
