@@ -8,9 +8,10 @@ Our project is an Academic Portal which will help the universities and the schoo
 We will  give the facility to teachers to add the announcements, assignments, grades and resources of respective courses and students with the facility to access the same. Students can also submit their answer sheets on the portal. Furthermore, a to-do list feature is provided for the students to help keep a check on their due assignments.
 
 ## Technologies used
-●      Database: MySQL
-●      Frontend: HTML, CSS and Bootstrap
-●      Server: Xampp and PHP
+<p>●      Database: MySQL</p>
+<p>●      Frontend: HTML, CSS and Bootstrap</p>
+<p>●      Server: Xampp and PHP</p>
+
 
 
 
