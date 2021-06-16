@@ -10,21 +10,21 @@ Welcome to **BV CLASSROOM** project.
 Here are some screenshots of my work -
 
 <!-- <p> -->
-  <img src='screenshots/login.png' width = '50%'>
-  <img src= 'screenshots/dashboard.png' width = '50%' >
-  <img src ='screenshots/edit_profile.png' width = '50%'>
+  <img src='screenshots/login.png' width = '70%'>
+  <img src= 'screenshots/dashboard.png' width = '70%' >
+  <img src ='screenshots/edit_profile.png' width = '70%'>
 <!-- </p> -->
 
 <!-- <p> -->
-  <img src='screenshots/overview.png' width = '50%'>
-  <img src= 'screenshots/syllabus.png' width = '50%'>
-  <img src='screenshots/announcement.png' width = '50%'>
+  <img src='screenshots/overview.png' width = '70%'>
+  <img src= 'screenshots/syllabus.png' width = '70%'>
+  <img src='screenshots/announcement.png' width = '70%'>
 <!-- </p> -->
 
 <!-- <p> -->
-  <img src='screenshots/assignment.png' width = '50%'>
-  <img src= 'screenshots/grades.png' width = '50%' >
-  <img src ='screenshots/resources.png' width = '50%'>
+  <img src='screenshots/assignment.png' width = '70%'>
+  <img src= 'screenshots/grades.png' width = '70%' >
+  <img src ='screenshots/resources.png' width = '70%'>
 <!-- </p> -->
 
 
