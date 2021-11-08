@@ -47,6 +47,9 @@
                                 <a class="nav-link " href="EditProfile.php"> Edit Profile </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link " href="calendar/index.php"> Calendar </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="../Login/includes/logout.inc.php"> Logout</a>
                             </li>
                         </ul>
